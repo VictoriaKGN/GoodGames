@@ -1,0 +1,143 @@
+body {
+    font-family: 'Jost', monospace;
+    background-color: #fff;
+    font-size: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    margin-bottom: 5%;
+  }
+  
+  input {
+    border: 3px solid rgb(100, 100, 100);
+    border-radius: 5px;
+    color: #000;
+  }
+  
+  input[type="text"] {
+    font-size: x-large;
+    width: 85%;
+    height: 50px;
+    text-align: center;
+  }
+  
+
+  input[type="submit"] {
+    font-size: larger;
+    width: 75px;
+    height: 50px;
+  }
+  
+    
+  p {
+    padding-left: 5px;
+  }
+  
+  ul {
+    list-style-type: none;
+    line-height: 1.7em;
+  }
+
+  img{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 50%;
+  }
+
+
+  .header {
+    font-size: 100%;
+    display: grid;
+    gap: 3em;
+    padding-top: 0px;
+    /*grid-template-columns: 1fr repeat(5, minmax(120px, 2fr));*/
+    grid-template-columns: 60px repeat(4, minmax(120px, 3fr));
+    grid-template-rows: 60px;
+    /*grid-template-rows: 1px repeat(2, minmax(150px,30vmin)) 60px;*/
+    grid-template-areas:
+        "l t t t s z";
+  }
+
+  
+  
+  .container {
+    font-size: 100%;
+    display: grid;
+    gap: 3em;
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: 1px repeat(3, minmax( 270px, 1fr ));
+    grid-template-areas:
+        ". . . . . ."
+        "a a d d e e"
+        "a a d d f f"
+        "b c d d f f";
+  }
+  
+  .container > div {
+    height: 100%;
+    border:3px solid rgb(100, 100, 100);  
+    border-radius: 5px;
+  }
+  
+  .container h2{
+    border-bottom: 3px solid rgb(100, 100, 100);
+    text-align: center;
+    padding-bottom: 4px;
+    color:rgb(17, 24, 48);
+  }
+
+
+.container h1{
+    text-align: center;
+    color:rgb(17, 24, 48);
+  }
+
+  #logo {
+    flex-basis: 60px;
+    grid-area: l;
+  }
+
+  #profile {
+    flex-basis: 60px;
+    grid-area: z;
+  }
+
+  #genres{
+    grid-area: a;
+  }
+
+  
+
+  #totalGames{
+    grid-area: b;
+  }
+
+  #totalHours{
+    grid-area: c;
+  }
+
+  #myGames{
+    grid-area: d;
+  }
+
+  #favGame{
+    grid-area: e;
+  }
+  
+  #timeLine{
+    grid-area: f;
+  }
+
+  #myGamesTitle{
+    text-align: center;
+    grid-area: t;
+  }
+
+  #addGame{
+    text-align: center;
+    grid-area: s;
+    background-color: lightgray;
+    }
