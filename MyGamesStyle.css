@@ -28,6 +28,15 @@ body {
     height: 50px;
   }
   
+  a:link{
+    color: #000;
+    list-style-type: none;
+    line-height: 1.7em;
+    font-size: x-large;
+    width: 85%;
+    height: 50px;
+    text-align: center;
+  }
     
   p {
     padding-left: 5px;
@@ -120,10 +129,12 @@ body {
   }
 
   #myGames{
+    overflow-y:scroll;
     grid-area: d;
   }
 
   #favGame{
+    overflow-y:scroll;
     grid-area: e;
   }
   
