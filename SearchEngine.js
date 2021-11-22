@@ -53,11 +53,13 @@ function selectElement(selector)
 function clearResults()
 {
     selectElement('.topResults-content').innerHTML = "";
+    selectElement('.otherResults-content').innerHTML = "";
 }
 
 var myConsoles = [];
 var myTags = [];
 var search = "";
+var displayed = [];
 
 // gets results from the search bar on the current page
 function getResults()
@@ -68,6 +70,7 @@ function getResults()
     results();
 
     document.getElementById("searchBar").value = "";
+    clearVars();
 }
 
 // loads results from the 'Advanced Search' page
@@ -78,6 +81,17 @@ function loadResults()
     myTags = sessionStorage.getItem("tags").split(",");
 
     results();
+
+    clearVars();
+}
+
+function clearVars()
+{
+    search = "";
+    myConsoles = [];
+    myTags = [];
+    displayed = [];
+    resetBoxes();
 }
 
 // actually gets the needed results
@@ -85,39 +99,66 @@ function results()
 {
     clearResults();
 
-    if (search.length > 0)
+    for (let i = 0; i < database.length; i++)
     {
-        for (let i = 0; i < database.length; i++)
+        if ((search.length == 0 || database[i].gameName.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+            && (myConsoles.length == 0 || myConsoles.every(c => database[i].gameConsoles.indexOf(c) >= 0))
+            && (myTags.length == 0 || myTags.every(t => database[i].gameTags.indexOf(t) >= 0))
+        )
         {
-            if (database[i].gameName.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-                //&& (myConsoles.length == 0 || isArrayInArray(database[i].gameConsoles, myConsoles))
-                //&& (myTags.length == 0 || isArrayInArray(database[i].gameTags, myTags))
-            )
-            {
-                selectElement('.topResults-content').innerHTML += `
+            selectElement('.topResults-content').innerHTML += `
                 
-                    <div class = "topResults-item">
-                        <div id="gameImage">
-                            <img src=${database[i].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
-                        </div>
-
-                        <div id = "gameName">
-                            <h3>${database[i].gameName}</h3>
-                        </div>
-
-                        <div id = "gameRating">
-                            <h4>Rating: ${database[i].gameRating}</h4>
-                        </div>
-
-                        <button id = btn type = "button">Add to My Games</button>
+                <div class = "topResults-item">
+                    <div id="gameImage">
+                        <img src=${database[i].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
                     </div>
 
-                `;
+                    <div id = "gameName">
+                        <h3>${database[i].gameName}</h3>
+                    </div>
+
+                    <div id = "gameRating">
+                        <h4>Rating: ${database[i].gameRating}</h4>
+                    </div>
+
+                    <button id = btn type = "button">Add to My Games</button>
+                </div>
+
+            `;
+
+            displayed.push(i);
+        }
+
+        if ((myConsoles.length != 0 && myConsoles.some(c => database[i].gameConsoles.indexOf(c) >= 0))
+            || (myTags.length != 0 && myTags.some(t => database[i].gameTags.indexOf(t) >= 0))
+        )
+        {
+            if (!displayed.includes(i))
+            {
+                selectElement('.otherResults-content').innerHTML += `
+                
+                <div class = "otherResults-item">
+                    <div id="gameImage">
+                        <img src=${database[i].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
+                    </div>
+
+                    <div id = "gameName">
+                        <h3>${database[i].gameName}</h3>
+                    </div>
+
+                    <div id = "gameRating">
+                        <h4>Rating: ${database[i].gameRating}</h4>
+                    </div>
+
+                    <button id = btn type = "button">Add to My Games</button>
+                </div>
+
+            `;
             }
         }
     }
-    resetBoxes();
 }
+
 
 function isArrayInArray(source, toFind)
 {
