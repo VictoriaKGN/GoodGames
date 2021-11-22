@@ -7,66 +7,76 @@
   <meta name = "viewport" content="width=device-width, initial-scale=1.0">
   <title>GoodGames | Advanced Search</title>
   <link rel="stylesheet" type="text/css" href="SearchStyle.css">
-  <!--<script type="text/javascript" src="search.js"></script>-->
+  <script type="text/javascript" src="search.js"></script>
 </head>
 
 <body>
     <div class="header">
         <div id="backArrow">
-            <a href="#"> <img src="backArrow.png" alt="GoodGames" style="width:60px;height:60px;"> </a>
+            <a href="#"> <img src="backArrow.png" alt="GoodGames" style="width:60px; height:60px;"> </a>
         </div>
 
-        <div id="Advanced Search">
+        <div id="AdvancedSearch">
             <form action="#">
-                <h2>Advanced Search</h2>
+                <h1>Advanced Search</h1>
             </form>
-        </div>
+        </div> 
 
         <div id="profile">
-            <a href="#"> <img src="profilePic.jpg" alt="profile image" style="width:60px;height:60px;"> </a>
+            <a href="#"> <img src="profilePic.jpg" alt="profile image" style="width:60px; height:60px; border-radius: 5px;"> </a>
         </div>
     </div>
 
     <div class="screenCenter">
-        <div id = "searchBar">
-            <form action = "#">
-              <input type  ="text" name = "searchTerm" placeholder = "Game title..." />
+        <input 
+            id = "searchBar" 
+            type = "text"
+            placeholder = "Game title..." 
+        />
+
+        <div id = "searchButton">
+            <form action = "GamesSearch.html">
+              <input type="submit" value="Search" onclick= "clickedSearch()"/> 
             </form>
         </div>
 
-        <div id = "searchButton">
-            <form action = "#">
-              <input type="submit" value="Search" /> 
-            </form>
-        </div>
-        
         <div class="cDropdown">
-            <button class="dropbtn">Consoles</button>
+            <button class="dropbtn">Consoles
+                <i class= "arrow down"></i>
+            </button>
             <div class="cDropdown-content">
-                <a href: "#"><input type = "checkbox" id = "1" />XBOX</label></a>
-                <a href: "#"><input type = "checkbox" id = "2" />XBOX One</label></a>
-                <a href: "#"><input type = "checkbox" id = "3" />XBOX 360</label></a>
-                <a href: "#"><input type = "checkbox" id = "4" />PC</label></a>
-                <a href: "#"><input type = "checkbox" id = "5" />PS1</label></a>
-                <a href: "#"><input type = "checkbox" id = "6" />PS2</label></a>
-                <a href: "#"><input type = "checkbox" id = "7" />PS3</label></a>
-                <a href: "#"><input type = "checkbox" id = "8" />PS4</label></a>
-                <a href: "#"><input type = "checkbox" id = "9" />PS5</label></a>
+                <a href: "#">
+                    <input type = "checkbox" id = "1" value = "XBOX"/>XBOX</label>
+                </a>
+                <a href: "#"><input type = "checkbox" id = "2" value = "XBOX One"/>XBOX One</label></a>
+                <a href: "#"><input type = "checkbox" id = "3" value = "XBOX 360"/>XBOX 360</label></a>
+                <a href: "#"><input type = "checkbox" id = "4" value = "PC"/>PC</label></a>
+                <a href: "#"><input type = "checkbox" id = "5" value = "PS1"/>PS1</label></a>
+                <a href: "#"><input type = "checkbox" id = "6" value = "PS2"/>PS2</label></a>
+                <a href: "#"><input type = "checkbox" id = "7" value = "PS3"/>PS3</label></a>
+                <a href: "#"><input type = "checkbox" id = "8" value = "PS4"/>PS4</label></a>
+                <a href: "#"><input type = "checkbox" id = "9" value = "PS5"/>PS5</label></a>
+                <a href: "#"><input type = "checkbox" id = "10" value = "Nintendo Switch"/>Nintendo Switch</label></a>
             </div>
         </div>
 
         <div class="tDropdown">
-            <button class="dropbtn">Tags</button>
+            <button class="dropbtn">Tags
+                <i class= "arrow down"></i>
+            </button>
             <div class="tDropdown-content">
-                <a href: "#"><input type = "checkbox" id = "1" />Multiplayer</label></a>
-                <a href: "#"><input type = "checkbox" id = "2" />Singleplayer</label></a>
-                <a href: "#"><input type = "checkbox" id = "3" />Indie</label></a>
-                <a href: "#"><input type = "checkbox" id = "4" />Adventure</label></a>
-                <a href: "#"><input type = "checkbox" id = "5" />Casual</label></a>
-                <a href: "#"><input type = "checkbox" id = "6" />Strategy</label></a>
-                <a href: "#"><input type = "checkbox" id = "7" />RPG</label></a>
-                <a href: "#"><input type = "checkbox" id = "8" />2D</label></a>
-                <a href: "#"><input type = "checkbox" id = "9" />3D</label></a>
+                <a href: "#"><input type = "checkbox" id = "11" value = "Multiplayer"/>Multiplayer</label></a>
+                <a href: "#"><input type = "checkbox" id = "12" value = "Singleplayer"/>Singleplayer</label></a>
+                <a href: "#"><input type = "checkbox" id = "13" value = "Indie"/>Indie</label></a>
+                <a href: "#"><input type = "checkbox" id = "14" value = "Advanture"/>Adventure</label></a>
+                <a href: "#"><input type = "checkbox" id = "15" value = "Casual"/>Casual</label></a>
+                <a href: "#"><input type = "checkbox" id = "16" value = "Strategy"/>Strategy</label></a>
+                <a href: "#"><input type = "checkbox" id = "17" value = "RPG" />RPG</label></a>
+                <a href: "#"><input type = "checkbox" id = "18" value = "2D" />2D</label></a>
+                <a href: "#"><input type = "checkbox" id = "19" value = "3D"/>3D</label></a>
+                <a href: "#"><input type = "checkbox" id = "20" value = "Action"/>Action</label></a>
+                <a href: "#"><input type = "checkbox" id = "21" value = "Shooter"/>Shooter</label></a>
+                <a href: "#"><input type = "checkbox" id = "22" value = "Competitive"/>Competitive</label></a>
             </div>
         </div>
 

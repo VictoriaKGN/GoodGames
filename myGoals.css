@@ -1,0 +1,514 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Jost', monospace;
+  background-color: #fff;
+  font-size: 100%;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 1%;
+  margin-bottom: 60px;
+  /*height: 100%;*/
+}
+
+ul {
+  /*height: 100%;*/
+  list-style-type: none;
+  line-height: 1em;
+  text-align: left;
+  overflow-y: scroll;
+  padding-inline-start: 10px;
+  /*get rid of following line later!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  max-height: 100px;
+}
+
+/********** classes ***********/
+
+.header {
+  font-size: 100%;
+  display: grid;
+  column-gap: 10px;
+  padding-top: 0px;
+  /*grid-template-columns: 1fr repeat(5, minmax(120px, 2fr));*/
+  grid-template-columns: 60px repeat(4, minmax(120px, 1fr)) 60px;
+  grid-template-rows: 60px;
+  /*grid-template-rows: 1px repeat(2, minmax(150px,30vmin)) 60px;*/
+  grid-template-areas:
+      "l t t t b f";
+}
+
+.button {
+  /*font-size: 30px;
+  /*padding: 10px 100px 0px 100px;*/
+  text-align: center;
+  text-decoration: none;
+  background-color: aqua;
+}
+
+h1{
+  margin-top: 5px;
+  font-size: 40px;
+  text-align: center;
+  text-decoration: none;
+  color:rgb(17, 24, 48);
+}
+
+
+.container {
+  height: 100%;
+  min-height: 300px;
+  font-size: 100%;
+  display: grid;
+  /*padding-bottom: 60px;*/
+  /*overflow-y: auto;*/
+  gap: 10px;
+  grid-template-columns: repeat(6,1fr) ;
+  /*grid-template-rows: 0px repeat(3, minmax( 10px, 1fr ));*/
+  grid-template-rows: 0px repeat(3, minmax(1fr,20vh)); /*what do I need to do to fix this????*/
+  grid-template-areas:
+      ". . . . . ."
+      "c c p p p p"
+      "a a p p p p"
+      "s s p p p p";
+}
+
+/*
+.sideGridItem {
+  max-height: 20vh;
+}
+*/
+
+
+.container > div {
+  /*height: 100%; */
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+}
+
+
+.container h2{
+  border-bottom: 3px solid rgb(100, 100, 100);
+  text-align: center;
+  /*padding-bottom: 4px;*/
+  color:rgb(17, 24, 48);
+  margin-block-start: 10px;
+  margin-bottom: 0px;
+
+}
+/********** IDs ***********/
+
+#logo {
+  /*flex-basis: 30px;*/
+  width: 100%;
+  height: 100%;
+  grid-area: l;
+  /*border:3px solid rgb(255, 255, 255); */
+}
+
+#myGoals_title {
+  height: 54px;
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  grid-area: t;
+}
+
+#addGoalButton {
+  height: 54px;
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  grid-area: b;
+  padding-top: 0px;
+
+
+  border: 2px black;
+  font-size: 150%;
+
+
+
+  font-family: 'Jost', monospace;
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  text-align: center;
+  text-decoration-style: bold;
+}
+
+h6 {
+  height: 100%;
+  border: 2px black;
+
+  font-size: 150%;
+  margin-top: 10px;
+}
+
+#profile {
+  /*flex-basis: 30px;*/
+  width: fit-content;
+  height: fit-content;
+  grid-area: f;
+  /*border:3px solid rgb(255, 255, 255); */
+}
+
+#current {
+  grid-area: c;
+}
+
+#archived {
+  grid-area: a;
+}
+
+#stats {
+  grid-area: s;
+}
+
+#progress {
+  grid-area: p;
+  margin-bottom: 0px;
+}
+
+#data {
+  letter-spacing: 10px;
+}
+
+li {
+  /*border-style: dotted;*/
+  padding-left: 3%;
+  margin-top:  5px;
+  margin-bottom: 3px;
+  margin-left: 3px;
+  
+  
+  
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 500px;
+  width:fit-content;
+  padding-right:3%;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  
+  /*border: hidden;*/
+  border-color: white;
+  cursor: pointer;
+}
+
+#test {
+  color: red;
+}
+
+li:hover {
+  border-color:rgb(100, 100, 100) !important;
+}
+
+#statsImage {
+  width: 75%;
+}
+
+
+
+.progress {
+  height: 100%;
+  min-height: 300px;
+  font-size: 100%;
+  display: grid;
+
+  gap: 5px;
+  grid-template-columns: 0px repeat(10,1fr) 0px;
+  grid-template-rows: 3em repeat(9, 1fr) 0px;
+
+  grid-template-areas:
+      "t t t t t t t t t t t t"
+      ". . g g g g g g g g . ."
+      ". . g g g g g g g g . ."
+      ". . g g g g g g g g . ."
+      ". . g g g g g g g g . ."
+      ". le g g g g g g g g ri ."
+      ". . g g g g g g g g . ."
+      ". . g g g g g g g g . ."
+      ". . g g g g g g g g . ."
+      ". . . . . . . . bu bu . ."
+      ". . . . . . . . . . . ."
+      ;
+}
+
+#left {
+  grid-area: le;
+}
+
+#right {
+  grid-area: ri;
+  transform: rotate(180deg);
+  
+}
+
+.arrow {
+  height: 40px;
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#statsImage {
+  grid-area: g;
+  width: 100%;
+}
+
+#progressButton {
+  grid-area: bu;
+}
+
+
+#title {
+  grid-area: t;
+}
+
+
+
+/*=============================================================================================================================*/
+ /* Popup container */
+ /*
+ .popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}*/
+
+#addGoalButton {
+  cursor: pointer;
+}
+
+/* The actual popup */
+
+.popup {
+  visibility: hidden;
+  background-color: aquamarine;
+  position: fixed;
+  top: 10vh;
+  left: 10vw;
+  height: 80vh;
+  width: 80vw;
+  z-index: 1;
+}
+
+
+
+
+.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */ /*
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+} */
+
+
+#addGame {
+  grid-area: AG;
+  cursor: pointer;
+}
+
+#addHours {
+  grid-area: AH;
+  cursor: pointer;
+}
+
+#closeButton {
+  grid-area: CB;
+  font-size: 5vh;
+  cursor: pointer;
+}
+
+#chooseGoalType {
+
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+
+  box-shadow: 10px 10px 10px #555;
+
+  font-size: 100%;
+  display: grid;
+
+  /*gap: 3vh 3vw;*/
+  gap: 3vh;
+  grid-template-columns: 0px repeat(12,1fr) 0px;
+  grid-template-rows: 0px repeat(7, 1fr) 0px;
+
+  grid-template-areas:
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  CB ."
+      ". . AG AG AG AG AG AH AH AH AH AH .  ."
+      ". . AG AG AG AG AG AH AH AH AH AH .  ."
+      ". . AG AG AG AG AG AH AH AH AH AH .  ."
+      ". . AG AG AG AG AG AH AH AH AH AH .  ."
+      ". . AG AG AG AG AG AH AH AH AH AH .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ;
+}
+
+.option {
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  /*max-width: 29vw;*/
+}
+
+.optionText {
+  text-align: center;
+  font-size: 13vh;
+  overflow-wrap: normal;
+}
+
+
+/*************************************************************************************************************************/
+/*Add a goal for a specific game*/
+
+#addingGameGoal {
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px #555;
+  background-color: rgb(255, 79, 79);
+  font-size: 100%;
+  display: grid;
+
+  /*gap: 3vh 3vw;*/
+  gap: 3vh;
+  grid-template-columns: 0px repeat(12,1fr) 0px;
+  grid-template-rows: 0px repeat(7, 1fr) 0px;
+
+  grid-template-areas:
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  CB ."
+      ". . .  .  .  DT DT DM DM .  .  .  .  ."
+      ". . .  FF FF FF FF FF FF FF FF .  .  ."
+      ". . .  DD DD MM MM YY YY YY YY  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  AG AG .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ;
+}
+
+#dropdownTitle {
+  grid-area: DT;
+  text-align: right;
+}
+
+#chooseGame{
+  grid-area: DM;
+  cursor: pointer;
+}
+
+#filler {
+  grid-area: FF;
+  text-align: center;
+  display: inline;
+  align-items: center;
+  vertical-align: middle;
+  
+
+  
+}
+
+#date {
+  grid-area: DD;
+  cursor: pointer;
+}
+
+#month{
+  grid-area: MM;
+  cursor: pointer;
+}
+
+#year {
+  grid-area: YY;
+  cursor: pointer;
+}
+
+#addGoal {
+  grid-area: AG;
+  cursor: pointer;
+}
+
+
+/*************************************************************************************************************************/
+/*Add a goal for number of hours*/
+
+#addingHoursGoal {
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px #555;
+  background-color: rgb(255, 197, 37);
+  font-size: 100%;
+  display: grid;
+
+  /*gap: 3vh 3vw;*/
+  gap: 3vh;
+  grid-template-columns: 0px repeat(12,1fr) 0px;
+  grid-template-rows: 0px repeat(7, 1fr) 0px;
+
+  grid-template-areas:
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  CB ."
+      ". . .  .  .  PL PL C2 C2 C2 C2 .  .  ."
+      ". . .  .  .  HH HH NH NH .  .  .  .  ."
+      ". . .  .  .  .  PW PW .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  AG AG .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ;
+}
+
+
+#text_Play {
+  grid-area: PL;
+  cursor: pointer;
+  text-align: right;
+}
+
+#choiceBetweenTwo {
+  grid-area: C2;
+  cursor: pointer;
+}
+
+#option1 {
+
+}
+
+#slash {
+
+}
+
+#option2 {
+
+}
+
+#text_Hours {
+  grid-area: HH;
+  text-align: right;
+}
+
+#numHours {
+  grid-area: NH;
+  cursor: pointer;
+}
+
+#text_PerWeek {
+  grid-area: PW;
+  text-align: center;
+}
+
+#addGoal {
+  grid-area: AG;
+  cursor: pointer;
+}
