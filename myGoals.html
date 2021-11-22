@@ -13,20 +13,69 @@
 
   <div class="header">
     <div id="logo">
-      <a href="#"> <img src="arrow.png" alt="GoodGames" style="width:60px;height:60px;"> </a>
+      <a href="#"> <img src="arrow.png" alt="GoodGames" style="width:30px;height:30px;"> </a>
     </div>
     
     <div id="myGoals_title">
       <h1>My Goals</h1>
     </div>
 
+    <!--
     <div id="addGoalButton" class="button">
+      <h6 class="popup" onclick="openPopup()">Add Goal
+        <span class="popuptext" id="myPopup">
+          <button onclick="closePopup()">x</button>
+          <option>Add Game Goal</option>
+          <option>Add Hours Goal</option>
+        </span>
+      </h6>
+    </div>
+  -->
+
+    <div id="addGoalButton" onclick="openPopup('chooseGoalType')">
       <h6>Add Goal</h6>
     </div>
 
-    <div id="profile">
-      <a href="#"> <img src="profile.JPG" alt="profile image" style="width:60px;height:60px;"> </a>
+    <div id="chooseGoalType" class="popup">
+      <button onclick="closePopup('chooseGoalType')" id="closeButton">x</button>
+        <button id="addGame" class="option" onclick="closePopup('chooseGoalType'),openPopup('addingGameGoal')">
+          <text class="optionText">Add Game Goal</text>
+        </option>
+        <button id="addHours" class="option" onclick="closePopup('chooseGoalType'),openPopup('addingHoursGoal')">
+          <text class="optionText">Add Hours Goal</text>
+        </option>
     </div>
+
+    <div id="addingGameGoal" class="popup">
+      <button onclick="closePopup('addingGameGoal')" id="closeButton">x</button>
+      <text id="dropdownTitle">Game:</text>
+      <button id="chooseGame"></button>
+      <text id="filler">to be completed by:</text>
+      <button id="date">DD</button>
+      <button id="month">MM</button>
+      <button id="year">YYYY</button>
+      <button onclick="closePopup('addingGameGoal'),addGoalToList()" id=addGoal>ADD</button>
+    </div>
+
+    <div id="addingHoursGoal" class="popup">
+      <button onclick="closePopup('addingHoursGoal')" id="closeButton">x</button>
+      <text id="text_Play">Play</text>
+      <eitherText id=choiceBetweenTwo>
+        <item id="option1">At Most</item>
+        <text id="slash">/</text>
+        <item id="option2">At Least</item>
+      </eitherText>
+      <text id=text_Hours>Hours:</text>
+      <button id="numHours"></button>
+      <text id="text_PerWeek">Per Week</text>
+      <button onclick="closePopup('addingHoursGoal'),addGoalToList()" id=addGoal>ADD</button>
+    </div>
+    
+
+    <div id="profile">
+      <a href="#"> <img src="profile.JPG" alt="profile image" style="width:30px;height:30px;"> </a>
+    </div>
+
   </div>
   
 
@@ -46,7 +95,7 @@
     </div>
     -->
 
-    <div id="current">
+    <div id="current" class="sideGridItem">
       <h2>Current</h2>
       <ul>
         <li id="first">Finish Zelda by Nov. 1st</li>
@@ -54,7 +103,7 @@
       </ul>
     </div>
 
-    <div id="archived">
+    <div id="archived" class="sideGridItem">
       <h2>Archived</h2>
       <ul>
         <li id="second">Finish Portal by Sept. 3</li>
@@ -64,7 +113,7 @@
       </ul>
     </div>
 
-    <div id="stats">
+    <div id="stats" class="sideGridItem">
       <h2>Stats</h2>
       <ul>
         <li id="data">Hours</li>
@@ -97,6 +146,12 @@
         <li>7/10 hours remaining</li>
       </ul>
     </div>  -->
+
+
+
+
+
+
 
   </div>
   <script src="myGoals.js"></script> 

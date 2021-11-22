@@ -21,7 +21,7 @@ ul {
   overflow-y: scroll;
   padding-inline-start: 10px;
   /*get rid of following line later!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  max-height: 50px;
+  max-height: 100px;
 }
 
 /********** classes ***********/
@@ -29,7 +29,7 @@ ul {
 .header {
   font-size: 100%;
   display: grid;
-  gap: 60px;
+  column-gap: 10px;
   padding-top: 0px;
   /*grid-template-columns: 1fr repeat(5, minmax(120px, 2fr));*/
   grid-template-columns: 60px repeat(4, minmax(120px, 1fr)) 60px;
@@ -63,10 +63,10 @@ h1{
   display: grid;
   /*padding-bottom: 60px;*/
   /*overflow-y: auto;*/
-  gap: 60px;
+  gap: 10px;
   grid-template-columns: repeat(6,1fr) ;
   /*grid-template-rows: 0px repeat(3, minmax( 10px, 1fr ));*/
-  grid-template-rows: 0px repeat(3, 1fr);
+  grid-template-rows: 0px repeat(3, minmax(1fr,20vh)); /*what do I need to do to fix this????*/
   grid-template-areas:
       ". . . . . ."
       "c c p p p p"
@@ -74,7 +74,11 @@ h1{
       "s s p p p p";
 }
 
-
+/*
+.sideGridItem {
+  max-height: 20vh;
+}
+*/
 
 
 .container > div {
@@ -116,6 +120,18 @@ h1{
   border-radius: 5px;
   grid-area: b;
   padding-top: 0px;
+
+
+  border: 2px black;
+  font-size: 150%;
+
+
+
+  font-family: 'Jost', monospace;
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  text-align: center;
+  text-decoration-style: bold;
 }
 
 h6 {
@@ -123,7 +139,7 @@ h6 {
   border: 2px black;
 
   font-size: 150%;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #profile {
@@ -175,6 +191,7 @@ li {
   
   /*border: hidden;*/
   border-color: white;
+  cursor: pointer;
 }
 
 #test {
@@ -247,4 +264,251 @@ li:hover {
 
 #title {
   grid-area: t;
+}
+
+
+
+/*=============================================================================================================================*/
+ /* Popup container */
+ /*
+ .popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}*/
+
+#addGoalButton {
+  cursor: pointer;
+}
+
+/* The actual popup */
+
+.popup {
+  visibility: hidden;
+  background-color: aquamarine;
+  position: fixed;
+  top: 10vh;
+  left: 10vw;
+  height: 80vh;
+  width: 80vw;
+  z-index: 1;
+}
+
+
+
+
+.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */ /*
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+} */
+
+
+#addGame {
+  grid-area: AG;
+  cursor: pointer;
+}
+
+#addHours {
+  grid-area: AH;
+  cursor: pointer;
+}
+
+#closeButton {
+  grid-area: CB;
+  font-size: 5vh;
+  cursor: pointer;
+}
+
+#chooseGoalType {
+
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+
+  box-shadow: 10px 10px 10px #555;
+
+  font-size: 100%;
+  display: grid;
+
+  /*gap: 3vh 3vw;*/
+  gap: 3vh;
+  grid-template-columns: 0px repeat(12,1fr) 0px;
+  grid-template-rows: 0px repeat(7, 1fr) 0px;
+
+  grid-template-areas:
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  CB ."
+      ". . AG AG AG AG AG AH AH AH AH AH .  ."
+      ". . AG AG AG AG AG AH AH AH AH AH .  ."
+      ". . AG AG AG AG AG AH AH AH AH AH .  ."
+      ". . AG AG AG AG AG AH AH AH AH AH .  ."
+      ". . AG AG AG AG AG AH AH AH AH AH .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ;
+}
+
+.option {
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  /*max-width: 29vw;*/
+}
+
+.optionText {
+  text-align: center;
+  font-size: 13vh;
+  overflow-wrap: normal;
+}
+
+
+/*************************************************************************************************************************/
+/*Add a goal for a specific game*/
+
+#addingGameGoal {
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px #555;
+  background-color: rgb(255, 79, 79);
+  font-size: 100%;
+  display: grid;
+
+  /*gap: 3vh 3vw;*/
+  gap: 3vh;
+  grid-template-columns: 0px repeat(12,1fr) 0px;
+  grid-template-rows: 0px repeat(7, 1fr) 0px;
+
+  grid-template-areas:
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  CB ."
+      ". . .  .  .  DT DT DM DM .  .  .  .  ."
+      ". . .  FF FF FF FF FF FF FF FF .  .  ."
+      ". . .  DD DD MM MM YY YY YY YY  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  AG AG .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ;
+}
+
+#dropdownTitle {
+  grid-area: DT;
+  text-align: right;
+}
+
+#chooseGame{
+  grid-area: DM;
+  cursor: pointer;
+}
+
+#filler {
+  grid-area: FF;
+  text-align: center;
+  display: inline;
+  align-items: center;
+  vertical-align: middle;
+  
+
+  
+}
+
+#date {
+  grid-area: DD;
+  cursor: pointer;
+}
+
+#month{
+  grid-area: MM;
+  cursor: pointer;
+}
+
+#year {
+  grid-area: YY;
+  cursor: pointer;
+}
+
+#addGoal {
+  grid-area: AG;
+  cursor: pointer;
+}
+
+
+/*************************************************************************************************************************/
+/*Add a goal for number of hours*/
+
+#addingHoursGoal {
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px #555;
+  background-color: rgb(255, 197, 37);
+  font-size: 100%;
+  display: grid;
+
+  /*gap: 3vh 3vw;*/
+  gap: 3vh;
+  grid-template-columns: 0px repeat(12,1fr) 0px;
+  grid-template-rows: 0px repeat(7, 1fr) 0px;
+
+  grid-template-areas:
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  CB ."
+      ". . .  .  .  PL PL C2 C2 C2 C2 .  .  ."
+      ". . .  .  .  HH HH NH NH .  .  .  .  ."
+      ". . .  .  .  .  PW PW .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  AG AG .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ;
+}
+
+
+#text_Play {
+  grid-area: PL;
+  cursor: pointer;
+  text-align: right;
+}
+
+#choiceBetweenTwo {
+  grid-area: C2;
+  cursor: pointer;
+}
+
+#option1 {
+
+}
+
+#slash {
+
+}
+
+#option2 {
+
+}
+
+#text_Hours {
+  grid-area: HH;
+  text-align: right;
+}
+
+#numHours {
+  grid-area: NH;
+  cursor: pointer;
+}
+
+#text_PerWeek {
+  grid-area: PW;
+  text-align: center;
+}
+
+#addGoal {
+  grid-area: AG;
+  cursor: pointer;
 }
