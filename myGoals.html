@@ -49,28 +49,172 @@
     <div id="addingGameGoal" class="popup">
       <button onclick="closePopup('addingGameGoal')" id="closeButton">x</button>
       <text id="dropdownTitle">Game:</text>
-      <button id="chooseGame"></button>
+      <!--<button id="chooseGame"></button>-->
+      <div class="gameDropdown">
+        <button class="gameDropbtn" id="selectGame">-Select Game-</button>
+        <div class="game-dropdown-content" id="game-dropdown">
+          <a href="#" onclick="changeGame(this)">Mariokart 8 (Wii-U)</a>
+          <a href="#" onclick="changeGame(this)">COD: Blops (PS4)</a>
+          <a href="#" onclick="changeGame(this)">Minecract (PC)</a>
+          <a href="#" onclick="changeGame(this)">Portal (PC)</a>
+          <a href="#" onclick="changeGame(this)">Pacman (Arcade)</a>
+          <a href="#" onclick="changeGame(this)">Wii Sports (Wii)</a>
+        </div>
+      </div>
+
+
       <text id="filler">to be completed by:</text>
-      <button id="date">DD</button>
+      <!--<button id="date">DD</button>
       <button id="month">MM</button>
-      <button id="year">YYYY</button>
-      <button onclick="closePopup('addingGameGoal'),addGoalToList()" id=addGoal>ADD</button>
+      <button id="year">YYYY</button>-->
+
+      <div class="dayDropdown">
+        <button class="dayDropbtn" id="selectDay">-Select Day-</button>
+        <div class="day-dropdown-content" id="day-dropdown">
+          <a href="#" onclick="changeDay(this)">1</a>
+          <a href="#" onclick="changeDay(this)">2</a>
+          <a href="#" onclick="changeDay(this)">3</a>
+          <a href="#" onclick="changeDay(this)">4</a>
+          <a href="#" onclick="changeDay(this)">5</a>
+          <a href="#" onclick="changeDay(this)">6</a>
+          <a href="#" onclick="changeDay(this)">7</a>
+          <a href="#" onclick="changeDay(this)">8</a>
+          <a href="#" onclick="changeDay(this)">9</a>
+          <a href="#" onclick="changeDay(this)">10</a>
+          <a href="#" onclick="changeDay(this)">11</a>
+          <a href="#" onclick="changeDay(this)">12</a>
+          <a href="#" onclick="changeDay(this)">13</a>
+          <a href="#" onclick="changeDay(this)">14</a>
+          <a href="#" onclick="changeDay(this)">15</a>
+          <a href="#" onclick="changeDay(this)">16</a>
+          <a href="#" onclick="changeDay(this)">17</a>
+          <a href="#" onclick="changeDay(this)">18</a>
+          <a href="#" onclick="changeDay(this)">19</a>
+          <a href="#" onclick="changeDay(this)">20</a>
+          <a href="#" onclick="changeDay(this)">21</a>
+          <a href="#" onclick="changeDay(this)">22</a>
+          <a href="#" onclick="changeDay(this)">23</a>
+          <a href="#" onclick="changeDay(this)">24</a>
+          <a href="#" onclick="changeDay(this)">25</a>
+          <a href="#" onclick="changeDay(this)">26</a>
+          <a href="#" onclick="changeDay(this)">27</a>
+          <a href="#" onclick="changeDay(this)">28</a>
+          <a href="#" onclick="changeDay(this)">29</a>
+          <a href="#" onclick="changeDay(this)">30</a>
+          <a href="#" onclick="changeDay(this)">31</a>
+        </div>
+      </div>
+
+      <div class="monthDropdown">
+        <button class="monthDropbtn" id="selectMonth">-Select Month-</button>
+        <div class="month-dropdown-content" id="month-dropdown">
+          <a href="#" onclick="changeMonth(this)">January</a>
+          <a href="#" onclick="changeMonth(this)">February</a>
+          <a href="#" onclick="changeMonth(this)">March</a>
+          <a href="#" onclick="changeMonth(this)">April</a>
+          <a href="#" onclick="changeMonth(this)">May</a>
+          <a href="#" onclick="changeMonth(this)">June</a>
+          <a href="#" onclick="changeMonth(this)">July</a>
+          <a href="#" onclick="changeMonth(this)">August</a>
+          <a href="#" onclick="changeMonth(this)">September</a>
+          <a href="#" onclick="changeMonth(this)">October</a>
+          <a href="#" onclick="changeMonth(this)">November</a>
+          <a href="#" onclick="changeMonth(this)">December</a>
+        </div>
+      </div>
+
+      <div class="yearDropdown">
+        <button class="yearDropbtn" id="selectYear">-Select Year-</button>
+        <div class="year-dropdown-content" id="year-dropdown">
+          <a href="#" onclick="changeYear(this)">2021</a>
+          <a href="#" onclick="changeYear(this)">2022</a>
+          <a href="#" onclick="changeYear(this)">2023</a>
+          <a href="#" onclick="changeYear(this)">2024</a>
+          <a href="#" onclick="changeYear(this)">2025</a>
+          <a href="#" onclick="changeYear(this)">2026</a>
+          <a href="#" onclick="changeYear(this)">2027</a>
+          <a href="#" onclick="changeYear(this)">2028</a>
+          <a href="#" onclick="changeYear(this)">2029</a>
+          <a href="#" onclick="changeYear(this)">2030</a>
+        </div>
+      </div>
+
+
+      <button onclick="addGameGoalToList('addingGameGoal')" id=addGoal>ADD</button>
     </div>
+
+
+
+
 
     <div id="addingHoursGoal" class="popup">
       <button onclick="closePopup('addingHoursGoal')" id="closeButton">x</button>
-      <text id="text_Play">Play</text>
+      <text id="text_Play">Play:</text>
       <eitherText id=choiceBetweenTwo>
-        <item id="option1">At Most</item>
+        <item id="option1" onclick="selectMost()">At Most</item>
         <text id="slash">/</text>
-        <item id="option2">At Least</item>
+        <item id="option2" onclick="selectLeast()">At Least</item>
       </eitherText>
       <text id=text_Hours>Hours:</text>
-      <button id="numHours"></button>
+      <!--<button id="numHours"></button>-->
+      <div class="hoursDropdown">
+        <button class="hoursDropbtn" id="selectHours">-Select Hours-</button>
+        <div class="hours-dropdown-content">
+          <a href="#" onclick="changeHours(this)">1</a>
+          <a href="#" onclick="changeHours(this)">2</a>
+          <a href="#" onclick="changeHours(this)">3</a>
+          <a href="#" onclick="changeHours(this)">4</a>
+          <a href="#" onclick="changeHours(this)">5</a>
+          <a href="#" onclick="changeHours(this)">6</a>
+          <a href="#" onclick="changeHours(this)">7</a>
+          <a href="#" onclick="changeHours(this)">8</a>
+          <a href="#" onclick="changeHours(this)">9</a>
+          <a href="#" onclick="changeHours(this)">10</a>
+          <a href="#" onclick="changeHours(this)">11</a>
+          <a href="#" onclick="changeHours(this)">12</a>
+          <a href="#" onclick="changeHours(this)">13</a>
+          <a href="#" onclick="changeHours(this)">14</a>
+          <a href="#" onclick="changeHours(this)">15</a>
+          <a href="#" onclick="changeHours(this)">16</a>
+          <a href="#" onclick="changeHours(this)">17</a>
+          <a href="#" onclick="changeHours(this)">18</a>
+          <a href="#" onclick="changeHours(this)">19</a>
+          <a href="#" onclick="changeHours(this)">20</a>
+          <a href="#" onclick="changeHours(this)">21</a>
+          <a href="#" onclick="changeHours(this)">22</a>
+          <a href="#" onclick="changeHours(this)">23</a>
+          <a href="#" onclick="changeHours(this)">24</a>
+          <a href="#" onclick="changeHours(this)">25</a>
+          <a href="#" onclick="changeHours(this)">26</a>
+          <a href="#" onclick="changeHours(this)">27</a>
+          <a href="#" onclick="changeHours(this)">28</a>
+          <a href="#" onclick="changeHours(this)">29</a>
+          <a href="#" onclick="changeHours(this)">30</a>
+          <a href="#" onclick="changeHours(this)">35</a>
+          <a href="#" onclick="changeHours(this)">40</a>
+          <a href="#" onclick="changeHours(this)">45</a>
+          <a href="#" onclick="changeHours(this)">50</a>
+          <a href="#" onclick="changeHours(this)">55</a>
+          <a href="#" onclick="changeHours(this)">60</a>
+          <a href="#" onclick="changeHours(this)">65</a>
+          <a href="#" onclick="changeHours(this)">70</a>
+          <a href="#" onclick="changeHours(this)">75</a>
+          <a href="#" onclick="changeHours(this)">80</a>
+          <a href="#" onclick="changeHours(this)">85</a>
+          <a href="#" onclick="changeHours(this)">90</a>
+          <a href="#" onclick="changeHours(this)">95</a>
+          <a href="#" onclick="changeHours(this)">100</a>
+          <a href="#" onclick="changeHours(this)">105</a>
+          <a href="#" onclick="changeHours(this)">110</a>
+        </div>
+      </div>
       <text id="text_PerWeek">Per Week</text>
-      <button onclick="closePopup('addingHoursGoal'),addGoalToList()" id=addGoal>ADD</button>
+      <button onclick="addHoursGoalToList('addingHoursGoal')" id=addGoal>ADD</button>
     </div>
     
+
+
+
 
     <div id="profile">
       <a href="#"> <img src="profile.JPG" alt="profile image" style="width:30px;height:30px;"> </a>
@@ -97,7 +241,7 @@
 
     <div id="current" class="sideGridItem">
       <h2>Current</h2>
-      <ul>
+      <ul id="current-goals-ul">
         <li id="first">Finish Zelda by Nov. 1st</li>
         <li id="third">Play less than 10 hous per week</li>
       </ul>
