@@ -9,7 +9,7 @@ body {
   margin-left: 60px;
   margin-right: 60px;
   margin-top: 1%;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
   /*height: 100%;*/
 }
 
@@ -390,9 +390,9 @@ li:hover {
   grid-template-areas:
       ". . .  .  .  .  .  .  .  .  .  .  .  ."
       ". . .  .  .  .  .  .  .  .  .  .  CB ."
-      ". . .  .  .  DT DT DM DM .  .  .  .  ."
+      ". . .  .  .  DT DT DM DM DM DM .  .  ."
       ". . .  FF FF FF FF FF FF FF FF .  .  ."
-      ". . .  DD DD MM MM YY YY YY YY  .  .  ."
+      ". . .  .  DD DD MM MM YY YY .  .  .  ."
       ". . .  .  .  .  .  .  .  .  .  .  .  ."
       ". . .  .  .  .  AG AG .  .  .  .  .  ."
       ". . .  .  .  .  .  .  .  .  .  .  .  ."
@@ -402,6 +402,10 @@ li:hover {
 #dropdownTitle {
   grid-area: DT;
   text-align: right;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
 }
 
 #chooseGame{
@@ -412,11 +416,12 @@ li:hover {
 #filler {
   grid-area: FF;
   text-align: center;
-  display: inline;
   align-items: center;
   vertical-align: middle;
-  
+  display: flex;
+  justify-content: center;
 
+  align-items: center;
   
 }
 
@@ -439,6 +444,222 @@ li:hover {
   grid-area: AG;
   cursor: pointer;
 }
+
+
+
+
+
+
+
+.dayDropbtn {
+  color:black;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.dayDropdown {
+  grid-area: DD;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.day-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.day-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.day-dropdown-content a:hover {
+  background-color: fuchsia;
+}
+
+.dayDropdown:hover .day-dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+.monthDropbtn {
+  color:black;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.monthDropdown {
+  grid-area: MM;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.month-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.month-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.month-dropdown-content a:hover {
+  background-color: fuchsia;
+}
+
+.monthDropdown:hover .month-dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+.yearDropbtn {
+  color:black;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.yearDropdown {
+  grid-area: YY;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.year-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.year-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.year-dropdown-content a:hover {
+  background-color: fuchsia;
+}
+
+.yearDropdown:hover .year-dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+
+.gameDropbtn {
+  color:black;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.gameDropdown {
+  grid-area: DM;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.game-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.game-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.game-dropdown-content a:hover {
+  background-color: fuchsia;
+}
+
+.gameDropdown:hover .game-dropdown-content {
+  display: block;
+}
+
+
+
 
 
 /*************************************************************************************************************************/
@@ -474,15 +695,33 @@ li:hover {
   grid-area: PL;
   cursor: pointer;
   text-align: right;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
 }
 
 #choiceBetweenTwo {
   grid-area: C2;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
 }
 
 #option1 {
+  border-color: white;
+  cursor: pointer;
+  border-style: solid;
+  width: fit-content;
+  border-radius: 500px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
+#option1:hover {
+  border-color:rgb(100, 100, 100) !important;
 }
 
 #slash {
@@ -490,12 +729,51 @@ li:hover {
 }
 
 #option2 {
+  border-color: white;
+  cursor: pointer;
+  border-style: solid;
+  width: fit-content;
+  border-radius: 500px;
+  padding-left: 5px;
+  padding-right: 5px;
 
+}
+
+#option2:hover {
+  border-color:rgb(100, 100, 100) !important;
+}
+
+
+li {
+  /*border-style: dotted;*/
+  padding-left: 3%;
+  margin-top:  5px;
+  margin-bottom: 3px;
+  margin-left: 3px;
+  
+  
+  
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 500px;
+  width:fit-content;
+  padding-right:3%;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  
+  /*border: hidden;*/
+  border-color: white;
+  cursor: pointer;
 }
 
 #text_Hours {
   grid-area: HH;
   text-align: right;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
 }
 
 #numHours {
@@ -506,9 +784,66 @@ li:hover {
 #text_PerWeek {
   grid-area: PW;
   text-align: center;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
 }
 
 #addGoal {
   grid-area: AG;
   cursor: pointer;
 }
+
+
+
+
+
+
+
+.hoursDropbtn {
+  color:black;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.hoursDropdown {
+  grid-area: NH;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.hours-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.hours-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.hours-dropdown-content a:hover {
+  background-color: fuchsia;
+}
+
+.hoursDropdown:hover .hours-dropdown-content {
+  display: block;
+}
+
