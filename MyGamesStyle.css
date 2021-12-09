@@ -2,12 +2,11 @@ body {
     font-family: 'Jost', monospace;
     background-color: #fff;
     font-size: 100%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 1%;
-    margin-bottom: 5%;
+    margin: 0;
   }
-  
+  * {
+    box-sizing: border-box;
+  }
   input {
     border: 3px solid rgb(100, 100, 100);
     border-radius: 5px;
@@ -18,7 +17,7 @@ body {
     font-size: x-large;
     width: 85%;
     height: 50px;
-    text-align: center;
+    text-align: left;
   }
   
 
@@ -60,12 +59,10 @@ body {
   .header {
     font-size: 100%;
     display: grid;
-    gap: 3em;
-    padding-top: 0px;
-    /*grid-template-columns: 1fr repeat(5, minmax(120px, 2fr));*/
+    grid-gap: 8px;
+    padding: 8px;
     grid-template-columns: 60px repeat(4, minmax(120px, 3fr));
     grid-template-rows: 60px;
-    /*grid-template-rows: 1px repeat(2, minmax(150px,30vmin)) 60px;*/
     grid-template-areas:
         "l t t t s z";
   }
@@ -75,7 +72,8 @@ body {
   .container {
     font-size: 100%;
     display: grid;
-    gap: 3em;
+    grid-gap: 8px;
+    padding: 8px;
     grid-template-columns: repeat(6, auto);
     grid-template-rows: 1px repeat(3, minmax( 270px, 1fr ));
     grid-template-areas:
@@ -92,15 +90,19 @@ body {
   }
   
   .container h2{
-    border-bottom: 3px solid rgb(100, 100, 100);
+    border-bottom: 2px solid rgb(100, 100, 100);
+    text-decoration: none;
+    margin-top: 0px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    background-color: lightgrey;
     text-align: center;
-    padding-bottom: 4px;
-    color:rgb(17, 24, 48);
   }
 
 
 .container h1{
     text-align: center;
+    padding: 60px 0;
     color:rgb(17, 24, 48);
   }
 
@@ -143,12 +145,16 @@ body {
   }
 
   #myGamesTitle{
-    text-align: center;
+    text-align: left;
     grid-area: t;
   }
 
   #addGame{
-    text-align: center;
     grid-area: s;
-    background-color: lightgray;
-    }
+    margin-top: 0px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    background-color: lightgrey;
+    text-align: center;
+  }
+    
