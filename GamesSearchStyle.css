@@ -1,5 +1,4 @@
-body 
-{
+body {
   font-family: "Jost", monospace;
   background-color: #fff;
   font-size: large;
@@ -9,8 +8,7 @@ body
   margin-bottom: 1%;
 }
 
-h1
-{
+h1 {
   font-size: xx-large;
   text-align: center;
   margin-top: 12px;
@@ -18,51 +16,53 @@ h1
   color: black;
 }
 
-h2
-{
-  border-bottom: 2px solid rgb(100, 100, 100);
+h2 {
   text-decoration: none;
   margin-top: 0px;
-  padding-top: 7px;
-  padding-bottom: 5px;
-  background-color: lightgrey;
+  padding-top: 10px;
+  background-color: #e8e8e8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding-bottom: 40px;
 }
 
-h3
-{
+h3 {
   margin-left: 200px;
   margin-bottom: 0;
   margin-top: 15px;
   font-size: x-large;
 }
 
-h4
-{
+h4 {
   margin-left: 200px;
   margin-bottom: 0;
   margin-top: 5px;
 }
 
-input 
-{
-  border: 2px solid rgb(100, 100, 100);
+input {
+  background-color: #e8e8e8;
   border-radius: 5px;
   color: #000;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  font-family: "Jost", monospace;
 }
 
-input[type="text"] 
-{
+input[type="text"] {
   font-size: x-large;
   box-sizing: content-box;
-  height: 99%;
+  height: 100%;
   width: 100.25%;
   padding-left: 2%;
   margin-left: 0;
   box-sizing: border-box;
 }
 
-input[type="submit"] 
-{
+input[type="submit"] {
   font-size: larger;
   width: 60%;
   height: 50px;
@@ -70,59 +70,49 @@ input[type="submit"]
   margin-left: 20%;
 }
 
-input[type="submit"]:hover
-{
+input[type="submit"]:hover {
   background-color: rgb(179, 174, 174);
 }
 
-.header 
-{
+.header {
   font-size: 100%;
   display: grid;
   gap: 1em;
   padding-top: 0;
   grid-template-columns: 60px repeat(4, minmax(255px, 3fr)) 60px;
   grid-template-rows: 60px;
-  grid-template-areas:
-      "a h h h h p";
+  grid-template-areas: "a h h h h p";
 }
 
-#Search
-{
+#Search {
   grid-area: h;
-  background-color: lightgrey;
+  background-color: #e8e8e8;
   border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
 }
 
-#backArrow
-{
+#backArrow {
   grid-area: a;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
 }
 
-#profile
-{
+#profile {
   grid-area: p;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
 }
 
-.wrapper {
-  background: white;
-}
-
-.arrow
-{
+.arrow {
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 5px;
 }
 
-.down
-{
+.down {
   transform: rotate(45deg);
 }
 
-.screenCenter 
-{
+.screenCenter {
   display: grid;
   gap: 1em;
   grid-template-columns: repeat(7, minmax(160px, 1fr));
@@ -133,15 +123,12 @@ input[type="submit"]:hover
     ". . . g . . .";
 }
 
-.screenCenter > div 
-{
+.screenCenter > div {
   height: 100%;
   border-radius: 5px;
-  border: 3px, grey;
 }
 
-.results
-{
+.results {
   display: grid;
   box-sizing: border-box;
   gap: 1em;
@@ -154,62 +141,61 @@ input[type="submit"]:hover
     "r r r o o o";
 }
 
-.results > div
-{
-  border: 2px solid rgb(100, 100, 100);  
+.results > div {
   border-radius: 5px;
   width: 99.6%;
   height: 100%;
+  background-color: lightgrey;
 }
 
-#searchBar 
-{
+#searchBar {
   grid-area: s;
 }
 
-#searchButton 
-{
+#searchButton {
   grid-area: g;
 }
 
-.dropbtn 
-{
-  background-color: white;
+.dropbtn {
   font-family: "Jost", monospace;
+  background: none;
   color: black;
   border: none;
   width: 100%;
-  height: 100%;
+  height: 98%;
   font-size: x-large;
 }
 
-.cDropdown 
-{
+.cDropdown {
   position: relative;
   display: inline-block;
   grid-area: c;
   height: 101%;
   width: 100.5%;
-  border: 2px solid rgb(100, 100, 100);
+  background-color: #e8e8e8;
   border-radius: 5px;
   font-size: x-large;
   padding-bottom: 1px;
   box-sizing: border-box;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+}
+
+.cDropdown:hover {
+  background-color: rgb(179, 174, 174);
 }
 
 /* dropdown box */
-.cDropdown-content 
-{
+.cDropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: #e8e8e8;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   width: 100%;
+  font-size: medium;
 }
 
-.cDropdown-content a 
-{
+.cDropdown-content a {
   color: black;
   padding: 5px;
   font-size: medium;
@@ -218,49 +204,43 @@ input[type="submit"]:hover
   position: relative;
 }
 
-.cDropdown-content a:hover 
-{
+.cDropdown-content a:hover {
   background-color: #ddd;
 }
 
-.cDropdown:hover .cDropdown-content 
-{
+.cDropdown:hover .cDropdown-content {
   display: block;
 }
 
-.cDropdown:hover .dropbtn 
-{
-  background-color: rgb(179, 174, 174);
-  width: 100%;
-  height: 100%;
-}
-
-.tDropdown 
-{
+.tDropdown {
   position: relative;
   display: inline-block;
   grid-area: t;
   height: 100%;
   width: 100.5%;
-  border: 2px solid rgb(100, 100, 100);
+  background-color: #e8e8e8;
   border-radius: 5px;
   font-size: x-large;
+  padding-bottom: 1px;
   box-sizing: border-box;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+}
+
+.tDropdown:hover {
+  background-color: rgb(179, 174, 174);
 }
 
 /* dropdown box */
-.tDropdown-content 
-{
+.tDropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: #e8e8e8;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   width: 100%;
 }
 
-.tDropdown-content a 
-{
+.tDropdown-content a {
   color: black;
   padding: 5px;
   font-size: medium;
@@ -269,40 +249,28 @@ input[type="submit"]:hover
   position: relative;
 }
 
-.tDropdown-content a:hover 
-{
+.tDropdown-content a:hover {
   background-color: #ddd;
 }
 
-.tDropdown:hover .tDropdown-content 
-{
+.tDropdown:hover .tDropdown-content {
   display: block;
 }
 
-.tDropdown:hover .dropbtn 
-{
-  background-color: rgb(179, 174, 174);
-  width: 100%;
-  height: 100%;
-}
-
-.topResults
-{
+.topResults {
   margin-top: 0;
   grid-area: r;
   text-align: center;
   height: 100%;
   display: grid;
-  grid-template-rows: 70px 1fr;
+  grid-template-rows: 50px 1fr;
   grid-template-columns: fr;
-  grid-template-areas: 
+  grid-template-areas:
     "."
-    "a" 
-  ;
+    "a";
 }
 
-.topResults-content
-{
+.topResults-content {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -311,34 +279,29 @@ input[type="submit"]:hover
   grid-area: a;
 }
 
-.topResults-item
-{
+.topResults-item {
   display: grid;
   grid-template-columns: 10px 50px 50px repeat(5, auto);
-  grid-template-areas: 
+  grid-template-areas:
     "i i n n n n n"
     "i i p p p p p"
-    "i i b b b b b"   
-  ;
+    "i i b b b b b";
 }
 
-.otherResults
-{
+.otherResults {
   margin-top: 0;
   grid-area: o;
   text-align: center;
   height: 100%;
   display: grid;
-  grid-template-rows: 70px 1fr;
+  grid-template-rows: 50px 1fr;
   grid-template-columns: fr;
-  grid-template-areas: 
+  grid-template-areas:
     "."
-    "c" 
-  ;
-}  
+    "c";
+}
 
-.otherResults-content
-{
+.otherResults-content {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -347,19 +310,16 @@ input[type="submit"]:hover
   grid-area: c;
 }
 
-.otherResults-item
-{
+.otherResults-item {
   display: grid;
   grid-template-columns: 10px 50px 50px repeat(5, auto);
-  grid-template-areas: 
+  grid-template-areas:
     "i i n n n n n"
     "i i p p p p p"
-    "i i b b b b b"   
-  ;
+    "i i b b b b b";
 }
 
-#gameImage
-{
+#gameImage {
   grid-area: i;
   align-items: flex-start;
   margin-left: 100px;
@@ -367,20 +327,17 @@ input[type="submit"]:hover
   margin-top: 20px;
 }
 
-#gameName
-{
+#gameName {
   grid-area: n;
   text-align: start;
 }
 
-#gameRating
-{
+#gameRating {
   grid-area: p;
   text-align: start;
 }
 
-#btn
-{
+#btn {
   grid-area: b;
   width: 150px;
   margin-left: 200px;
