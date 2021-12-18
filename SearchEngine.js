@@ -121,7 +121,7 @@ function results()
                         <h4>Rating: ${database[i].gameRating}</h4>
                     </div>
 
-                    <button id = btn type = "button">Add to My Games</button>
+                    <button id = btn type = "button" onclick = "addGame(\'${database[i].gameName}\')">Add to My Games</button>                
                 </div>
 
             `;
@@ -150,7 +150,7 @@ function results()
                         <h4>Rating: ${database[i].gameRating}</h4>
                     </div>
 
-                    <button id = btn type = "button">Add to My Games</button>
+                    <button id = btn type = "button" onclick = "addGame(\'${database[i].gameName}\')">Add to My Games</button>
                 </div>
 
             `;
@@ -212,4 +212,10 @@ function resetBoxes()
     }
 }
 
+// send the game to My Games page
+function addGame(name)
+{
+    sessionStorage.setItem("gameToAdd", name);
+    window.location.href = "My Games.html";
+}
 
