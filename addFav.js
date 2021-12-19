@@ -54,27 +54,28 @@ var displayed = [];
 //Displays games under my games on page load
 
 function displayGames(){
-    for (let i = 0; i < database.length; i++){
-        selectElement('.myGamesInside').innerHTML += `
-            <div class = "item">
-                <div id="gameImage">
-                    <img src=${database[i].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
+    let addName = sessionStorage.getItem("gameToAdd");
+    let addIndex = gameSearch(addName);
+    displayed.push(database[addIndex]);
+            selectElement('.myGamesInside').innerHTML += `
+                <div class = "item">
+                    <div id="gameImage">
+                        <img src=${database[addIndex].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
+                    </div>
+
+                    <div id = "gameName">
+                        <h4>${database[addIndex].gameName}</h4>
+                    </div>
+
+                    <div id = "gameRating">
+                        <h5>Rating: ${database[addIndex].gameRating}</h5>
+                    </div>
+
+                    <button id = btn type = "button" onclick="addFav(${addIndex})">Add to My Favourites</button>
                 </div>
 
-                <div id = "gameName">
-                    <h4>${database[i].gameName}</h4>
-                </div>
-
-                <div id = "gameRating">
-                    <h5>Rating: ${database[i].gameRating}</h5>
-                </div>
-
-                <button id = btn type = "button" onclick="addFav(${i})">Add to My Favourites</button>
-            </div>
-
-        `;
-        displayed.push(database[i]);
-    }
+            `;
+            
 }
 
 //Adds game to favourites
@@ -152,4 +153,8 @@ function gameCount(){
     selectElement('.totalGames').innerHTML += `
         <h1>${displayed.length}</h1>
     `;
+}
+
+function gameSearch(name){
+    return database.findIndex(x => x.gameName === name);
 }
