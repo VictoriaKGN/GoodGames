@@ -51,6 +51,8 @@ function selectElement(selector){
 
 var displayed = [];
 
+//Displays games under my games on page load
+
 function displayGames(){
     for (let i = 0; i < database.length; i++){
         selectElement('.myGamesInside').innerHTML += `
@@ -74,6 +76,8 @@ function displayGames(){
         displayed.push(database[i]);
     }
 }
+
+//Adds game to favourites
 
 function addFav(index){
     selectElement('.favGamesInside').innerHTML += `
