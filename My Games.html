@@ -1,82 +1,73 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GoodGames</title>
+  <body style="background-color:#383838;"></body>
   <link rel="stylesheet" type="text/css" href="MyGamesStyle.css">
-  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
-    <!-- source: https://github.com/indestructible-type/Jost -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="addFav.js"></script>
 </head>
-<body>
+<body onload="displayGames(),add(),drawChart(),gameCount();">
     <div class="header">
-        <div id="logo">
-          <a href="HomePage.html"> <img src="logo.JPG" alt="GoodGames" style="width:60px;height:60px;"> </a>
+        <div class="logo">
+          <a href="#"> <img src="logo.JPG" alt="GoodGames" style="width:60px;height:60px;"> </a>
         </div>
 
-        <div id="myGamesTitle">
-          <form action="#">
-            <input type="text" name="searchTerm" placeholder="Game title..." />
-            <input type="submit" value="Search" /> 
+        <div class="myGamesTitle">
+            <h3>My Games</h3>
+        </div>
+
+        <div class="advancedSearch">
+          <form action="GamesSearch.html">
+            <input type="submit" value = "Search"/>
           </form>
         </div>
 
-        <div id="addGame">
-          <a href="GamesSearch.html" target="_self"> Advanced Search</a>
-        </div>
-
-        <div id="profile">
+        <div class="profile">
             <a href="#"> <img src="profile.png" alt="profile" style="width:60px;height:60px;"> </a>
         </div>
       </div>
 
     <div class="container">
-      <div id="genres">
+      <div class="genres">
         <h2>Genres</h2>
-        <img src="PIE.jpg" alt="pie">
+        <div class="genresInside">
+          <div id="piechart" style="height: inherit;"></div>
+        </div>
       </div>
 
-      <div id="totalGames">
+      <div class="totalGames">
         <h2>Total Games</h2>
-        <h1>
-          6
-        </h1>
+        <div class=totalGamesInside></div>
       </div>
 
-      <div id="totalHours">
+      <div class="totalHours">
         <h2>Total Hours</h2>
-        <h1>
-          112
-        </h1>
-
+        <div class="totalHoursInside">
+          <h1>
+            112
+          </h1>
+        </div>
       </div>
 
-      <div id="myGames">
+      <div class="myGames">               
         <h2>My Games</h2>
-        <ul>
-          <li>Mariokart 8 (Wii-U)</li>
-          <li>COD: Blops (PS4)</li>
-          <li>Minecract (PC)</li>
-          <li>Portal (PC)</li>
-          <li>Pacman (Arcade)</li>
-          <li>Wii Sports (Wii)</li>
-        </ul>
-
+        <div class="myGamesInside"> </div>
       </div>
 
-      <div id="favGame">
+      <div class="favGames">
         <h2>Favourite Games</h2>
-        <ul>
-          <li>Minecract (PC)</li>
-          <li>Portal (PC)</li>
-        </ul>
-
+        <div class="favGamesInside"> </div>
       </div>
 
-      <div id="timeLine">
+      <div class="timeline">
         <h2>Timeline</h2>
-        <img src="timeline.webp" alt="timeline">
+        <div class="timelineInside">
+          <img src="timeline.webp" alt="timeline">
+        </div>
       </div>
     </div>
 </body>

@@ -268,13 +268,13 @@ input[type="submit"]:hover {
   grid-template-areas:
     "."
     "a";
+  overflow: hidden;
 }
 
 .topResults-content {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   text-align: start;
   grid-area: a;
 }
@@ -299,13 +299,14 @@ input[type="submit"]:hover {
   grid-template-areas:
     "."
     "c";
+  overflow: hidden;
 }
 
 .otherResults-content {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
+
+  overflow-y: auto;
   text-align: start;
   grid-area: c;
 }
