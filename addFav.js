@@ -44,61 +44,125 @@ const database =
     },
 ];
 
+var added = 
+[
+    {
+        gameName: "Mario Kart 8",
+        gameTags: ["Multiplayer","Action"],
+        gamePicture: "marioKart8.jpg",
+        gameRating: "4.1/5"
+    },
+    {
+        gameName: "Call of Duty: Black Ops ",
+        gameTags: ["Multiplayer", "Shooter", "Competitive"],
+        gamePicture: "codBlop.jpg",
+        gameRating: "4.5/5"
+    },
+    {
+        gameName: "Minecraft",
+        gameTags: ["3D", "Action", "Adventure"],
+        gamePicture: "minecraft.png",
+        gameRating: "4.0/5"
+    },
+    {
+        gameName: "Pacman",
+        gameTags: ["2D","Action","Strategy"],
+        gamePicture: "pacman.jpg",
+        gameRating: "3.9/5"
+    },
+    {
+        gameName: "Wii Sports",
+        gameTags: ["3D", "Multiplayer"],
+        gamePicture: "wiiSports.jpg",
+        gameRating: "3.6/5"
+    },
+];
 
 function selectElement(selector){
     return document.querySelector(selector);
 }
 
 var displayed = [];
+var favs = [];
 
 //Displays games under my games on page load
 
-function displayGames(){
+function add(){
     let addName = sessionStorage.getItem("gameToAdd");
-    let addIndex = gameSearch(addName);
-    displayed.push(database[addIndex]);
-            selectElement('.myGamesInside').innerHTML += `
+    if(sessionStorage.getItem("gameToAdd") != undefined){
+        let addIndex = gameSearch(addName);
+        
+                selectElement('.myGamesInside').innerHTML += `
+                    <div class = "item">
+                        <div id="gameImage">
+                            <img src=${database[addIndex].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
+                        </div>
+
+                        <div id = "gameName">
+                            <h4>${database[addIndex].gameName}</h4>
+                        </div>
+
+                        <div id = "gameRating">
+                            <h5>Rating: ${database[addIndex].gameRating}</h5>
+                        </div>
+
+                        <button id = btn type = "button" onclick="addFav(${displayed.length})">Add to My Favourites</button>
+                    </div>
+
+                `;
+                displayed.push(database[addIndex]);
+    }
+}
+
+function displayGames(){
+    for (let i = 0; i < added.length; i++){
+        selectElement('.myGamesInside').innerHTML += `
                 <div class = "item">
                     <div id="gameImage">
-                        <img src=${database[addIndex].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
+                        <img src=${added[i].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
                     </div>
 
                     <div id = "gameName">
-                        <h4>${database[addIndex].gameName}</h4>
+                        <h4>${added[i].gameName}</h4>
                     </div>
 
                     <div id = "gameRating">
-                        <h5>Rating: ${database[addIndex].gameRating}</h5>
+                        <h5>Rating: ${added[i].gameRating}</h5>
                     </div>
 
-                    <button id = btn type = "button" onclick="addFav(${addIndex})">Add to My Favourites</button>
+                    <button id = btn type = "button" onclick="addFav(${i})">Add to My Favourites</button>
                 </div>
 
             `;
-            
+            displayed.push(added[i]);
+
+    }
 }
 
 //Adds game to favourites
 
-function addFav(index){
+function addFav(game){
+    if(favs.includes(displayed[game]) == false){
     selectElement('.favGamesInside').innerHTML += `
         <div class = "item">
             <div id="gameImage">
-                <img src=${database[index].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
+                <img src=${displayed[game].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
             </div>
 
             <div id = "gameName">
-                <h4>${database[index].gameName}</h4>
+                <h4>${displayed[game].gameName}</h4>
             </div>
 
             <div id = "gameRating">
-                <h5>Rating: ${database[index].gameRating}</h5>
+                <h5>Rating: ${displayed[game].gameRating}</h5>
             </div>
 
             <button id = btn type = "button">Remove</button>
         </div>
 
     `;
+    favs.push(displayed[game]);
+    }
 }
 
 //counts the amount a tag appears in my games 
