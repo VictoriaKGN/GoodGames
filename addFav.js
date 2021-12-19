@@ -96,6 +96,8 @@ function addFav(index){
     `;
 }
 
+//counts the amount a tag appears in my games 
+
 function tagCount(tag){
     var count = 0;
     for(let i = 0; i < displayed.length; i++){
@@ -108,6 +110,8 @@ function tagCount(tag){
 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
+
+//implements the pie graph 
 
 function drawChart() {
 
@@ -137,6 +141,8 @@ function drawChart() {
 
   chart.draw(data, options);
 }
+
+//counts the amount of games in my games 
 
 function gameCount(){
     selectElement('.totalGames').innerHTML += `
