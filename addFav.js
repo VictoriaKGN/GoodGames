@@ -50,31 +50,31 @@ var added =
         gameName: "Mario Kart 8",
         gameTags: ["Multiplayer","Action"],
         gamePicture: "marioKart8.jpg",
-        gameRating: "4.1/5"
+        gameRating: "4.1"
     },
     {
         gameName: "Call of Duty: Black Ops ",
         gameTags: ["Multiplayer", "Shooter", "Competitive"],
         gamePicture: "codBlop.jpg",
-        gameRating: "4.5/5"
+        gameRating: "4.5"
     },
     {
         gameName: "Minecraft",
         gameTags: ["3D", "Action", "Adventure"],
         gamePicture: "minecraft.png",
-        gameRating: "4.0/5"
+        gameRating: "4.0"
     },
     {
         gameName: "Pacman",
         gameTags: ["2D","Action","Strategy"],
         gamePicture: "pacman.jpg",
-        gameRating: "3.9/5"
+        gameRating: "3.9"
     },
     {
         gameName: "Wii Sports",
         gameTags: ["3D", "Multiplayer"],
         gamePicture: "wiiSports.jpg",
-        gameRating: "3.6/5"
+        gameRating: "3.6"
     },
 ];
 
@@ -92,7 +92,7 @@ function add(){
     if(sessionStorage.getItem("gameToAdd") != undefined){
         let addIndex = gameSearch(addName);
         
-                selectElement('.myGamesInside').innerHTML += `
+                selectElement('.myGamesInside').innerHTML = `
                     <div class = "item">
                         <div id="gameImage">
                             <img src=${database[addIndex].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
@@ -103,16 +103,29 @@ function add(){
                         </div>
 
                         <div id = "gameRating">
-                            <h5>Rating: ${database[addIndex].gameRating}</h5>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 star</label>
+                            </div>
                         </div>
 
                         <button id = btn type = "button" onclick="addFav(${displayed.length})">Add to My Favourites</button>
                     </div>
 
-                `;
+                ` + selectElement('.myGamesInside').innerHTML;
                 displayed.push(database[addIndex]);
     }
 }
+
+//displays previously added games from added games database
 
 function displayGames(){
     for (let i = 0; i < added.length; i++){
@@ -218,6 +231,8 @@ function gameCount(){
         <h1>${displayed.length}</h1>
     `;
 }
+
+//finds the game in the displayed list and returns its index 
 
 function gameSearch(name){
     return database.findIndex(x => x.gameName === name);
