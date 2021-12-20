@@ -225,21 +225,6 @@ function drawChart() {
 
   chart.draw(data, options);
 
-  var container = document.getElementById('timeline');
-  var chart = new google.visualization.Timeline(container);
-  var dataTable = new google.visualization.DataTable();
-
-  dataTable.addColumn({ type: 'string', id: 'Game' });
-  dataTable.addColumn({ type: 'date', id: 'Start' });
-  dataTable.addColumn({ type: 'date', id: 'End' });
-  dataTable.addRows();
-
-var options2 = {
-    timeline: { showRowLabels: false }
-};
-
-  chart.draw(dataTable,options2);
-
 }
 
 //counts the amount of games in my games 
