@@ -192,6 +192,7 @@ function tagCount(tag){
 }
 
 google.charts.load('current', {'packages':['corechart']});
+google.charts.load("current", {packages:["timeline"]});
 google.charts.setOnLoadCallback(drawChart);
 
 //implements the pie graph 
@@ -223,6 +224,25 @@ function drawChart() {
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
   chart.draw(data, options);
+
+  var container = document.getElementById('timeline');
+  var chart = new google.visualization.Timeline(container);
+  var dataTable = new google.visualization.DataTable();
+
+  dataTable.addColumn({ type: 'string', id: 'Game' });
+  dataTable.addColumn({ type: 'date', id: 'Start' });
+  dataTable.addColumn({ type: 'date', id: 'End' });
+  dataTable.addRows([
+    [ 'Washington', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
+    [ 'Adams',      new Date(1797, 2, 4),  new Date(1801, 2, 4) ],
+    [ 'Jefferson',  new Date(1801, 2, 4),  new Date(1809, 2, 4) ]]);
+
+var options2 = {
+    timeline: { showRowLabels: false }
+};
+
+  chart.draw(dataTable,options2);
+
 }
 
 //counts the amount of games in my games 
@@ -239,12 +259,18 @@ function gameSearch(name){
     return database.findIndex(x => x.gameName === name);
 }
 
+//finds the game in the fav game list and returns its index
+
 function favSearch(name){
     return favs.findIndex(x => x.gameName === name);
 }
+
+//removes an item from the fav game list on the page
 
 function removeFav(index){
     var toDelete = document.querySelectorAll('.favItem')[index];
     toDelete.outerHTML = ``;
     favs.splice(index,1);
 }
+
+
