@@ -21,7 +21,7 @@ ul {
   overflow-y: scroll;
   padding-inline-start: 10px;
   /*get rid of following line later!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  max-height: 100px;
+  max-height: 200px;
 }
 
 /********** classes ***********/
@@ -214,22 +214,17 @@ li:hover {
   font-size: 100%;
   display: grid;
 
-  gap: 5px;
+  gap: 10px;
   grid-template-columns: 0px repeat(10,1fr) 0px;
-  grid-template-rows: 3em repeat(9, 1fr) 0px;
+  grid-template-rows: 3em repeat(5, 1fr) 0px;
 
   grid-template-areas:
       "t t t t t t t t t t t t"
       ". . g g g g g g g g . ."
-      ". . g g g g g g g g . ."
-      ". . g g g g g g g g . ."
-      ". . g g g g g g g g . ."
       ". le g g g g g g g g ri ."
       ". . g g g g g g g g . ."
-      ". . g g g g g g g g . ."
-      ". . g g g g g g g g . ."
-      ". . . . . . . . bu bu . ."
-      ". . . . . . . . . . . ."
+      ". . p p p p . ad ad . . ."
+      ". . p p p p . bu bu . . ."
       ;
 }
 
@@ -250,15 +245,52 @@ li:hover {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  opacity: 50%;
 }
 
-#statsImage {
+#stats-graph {
   grid-area: g;
-  width: 100%;
+  /*border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;*/
+  /*display: none;*/
 }
 
-#progressButton {
+#pie-image {
+  grid-area: p;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  max-width: 200px;
+  max-height: 200px;
+  /*border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;*/
+  /*display: none;*/
+}
+
+.chart-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+/*
+.progress > div {
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+}*/
+
+#button-2 {
   grid-area: bu;
+  display: none;
+}
+
+#button-1 {
+  grid-area: ad;
+  display: none;
 }
 
 
@@ -394,7 +426,7 @@ li:hover {
       ". . .  FF FF FF FF FF FF FF FF .  .  ."
       ". . .  .  DD DD MM MM YY YY .  .  .  ."
       ". . .  .  .  .  .  .  .  .  .  .  .  ."
-      ". . .  .  .  .  AG AG .  .  .  .  .  ."
+      ". . .  .  .  .  AG AG .  .  WW WW WW ."
       ". . .  .  .  .  .  .  .  .  .  .  .  ."
       ;
 }
@@ -681,11 +713,11 @@ li:hover {
   grid-template-areas:
       ". . .  .  .  .  .  .  .  .  .  .  .  ."
       ". . .  .  .  .  .  .  .  .  .  .  CB ."
-      ". . .  .  .  PL PL C2 C2 C2 C2 .  .  ."
+      ". . .  .  .  PL PL C2 C2 .  .  .  .  ."
       ". . .  .  .  HH HH NH NH .  .  .  .  ."
       ". . .  .  .  .  PW PW .  .  .  .  .  ."
       ". . .  .  .  .  .  .  .  .  .  .  .  ."
-      ". . .  .  .  .  AG AG .  .  .  .  .  ."
+      ". . .  .  .  .  AG AG .  .  WW WW WW ."
       ". . .  .  .  .  .  .  .  .  .  .  .  ."
       ;
 }
@@ -725,7 +757,6 @@ li:hover {
 }
 
 #slash {
-
 }
 
 #option2 {
@@ -847,3 +878,213 @@ li {
   display: block;
 }
 
+
+
+
+/*************************************************************************************************************************/
+/*Editing Graph Data*/
+
+/*
+.popup {
+  visibility: hidden;
+  background-color: aquamarine;
+  position: fixed;
+  top: 10vh;
+  left: 10vw;
+  height: 80vh;
+  width: 80vw;
+  z-index: 1;
+}
+*/
+
+#editing-data {
+  border:3px solid rgb(100, 100, 100);  
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px #555;
+  background-color: rgb(255, 197, 37);
+  font-size: 100%;
+  display: grid;
+
+  /*gap: 3vh 3vw;*/
+  gap: 3vh;
+  grid-template-columns: 0px repeat(12,1fr) 0px;
+  grid-template-rows: 0px repeat(7, 1fr) 0px;
+
+  grid-template-areas:
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  CB ."
+      ". . P  P  P  H  NH NH M  QQ QQ .  .  ."
+      ". . .  .  .  F  DM DM DM .  .  .  .  ."
+      ". . .  .  .  N  DD DD DD .  .  .  .  ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  .  AG AG .  .  WW WW WW ."
+      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ;
+}
+
+#text-I-played {
+  grid-area: P;
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#text-hours {
+  grid-area: H;
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#text-minutes {
+  grid-area: M;
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hoursDropdown {
+  grid-area: NH;
+  cursor: pointer;
+}
+
+#text-of {
+  grid-area: F;
+}
+
+#text-on {
+  grid-area: N;
+}
+
+
+
+
+
+
+
+.day-drop-btn {
+  color:black;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.day-dropdown {
+  grid-area: DD;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.day-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.day-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.day-dropdown-content a:hover {
+  background-color: fuchsia;
+}
+
+.day-dropdown:hover .day-dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+.minsDropBtn {
+  color:black;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.minutesDropDown {
+  grid-area: QQ;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.minutes-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.minutes-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.minutes-dropdown-content a:hover {
+  background-color: fuchsia;
+}
+
+.minutesDropDown:hover .minutes-dropdown-content {
+  display: block;
+}
+
+
+
+
+#warning1{
+  opacity: 0%;
+  grid-area: WW;
+  z-index: 1;
+  text-align: center;
+}
+
+#warning2{
+  opacity: 0%;
+  grid-area: WW;
+  z-index: 1;
+  text-align: center;
+}
+
+#warning3{
+  opacity: 0%;
+  grid-area: WW;
+  z-index: 1;
+  text-align: center;
+}
