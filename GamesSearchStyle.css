@@ -28,16 +28,15 @@ h2 {
 }
 
 h3 {
-  margin-left: 200px;
   margin-bottom: 0;
-  margin-top: 15px;
+  padding-top: 15px;
   font-size: x-large;
 }
 
 h4 {
-  margin-left: 200px;
   margin-bottom: 0;
-  margin-top: 5px;
+  margin-top: 7px;
+  font-weight: 500px;
 }
 
 input {
@@ -280,12 +279,13 @@ input[type="submit"]:hover {
 }
 
 .topResults-item {
-  display: grid;
+  padding-left: 100px;
+  /*display: grid;
   grid-template-columns: 10px 50px 50px repeat(5, auto);
   grid-template-areas:
     "i i n n n n n"
     "i i p p p p p"
-    "i i b b b b b";
+    "i i b b b b b";*/
 }
 
 .otherResults {
@@ -312,20 +312,23 @@ input[type="submit"]:hover {
 }
 
 .otherResults-item {
-  display: grid;
+  padding-left: 100px;
+  /*display: grid;
   grid-template-columns: 10px 50px 50px repeat(5, auto);
   grid-template-areas:
     "i i n n n n n"
     "i i p p p p p"
-    "i i b b b b b";
+    "i i x x x x x"
+    "i i b b b b b"
+    ;*/
 }
 
 #gameImage {
   grid-area: i;
-  align-items: flex-start;
-  margin-left: 100px;
-  margin-bottom: 20px;
+  float: left;
   margin-top: 20px;
+  margin-right: 50px;
+  
 }
 
 #gameName {
@@ -338,10 +341,16 @@ input[type="submit"]:hover {
   text-align: start;
 }
 
+#gameTags
+{
+  grid-area: x;
+  text-align: start;
+}
+
 #btn {
   grid-area: b;
   width: 150px;
-  margin-left: 200px;
   height: 30px;
-  margin-bottom: 0px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
