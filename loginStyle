@@ -1,0 +1,97 @@
+body {
+	font-family: "Jost", monospace;
+	font-size: large;
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.TopBar 
+{
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+#GoodGames
+{
+	background-color: lightgray;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+}
+
+h1 {
+	font-size: 60px;
+	text-align: center;
+	margin-top: 12px;
+	margin-bottom: 0px;
+	text-decoration: none;
+	color: black;
+	width: 500px;
+}
+
+
+/*----------------------------Log in----------------------------- */
+
+.loginThings
+{
+	display: flex;
+	justify-content: center;
+	padding-top: 10%;
+}
+
+.table{
+	font-size: x-large;
+	font-family:"Jost", monospace;
+}
+
+#text
+{
+	padding-right: 5px;
+	padding-bottom: 5px;
+	color: white;
+}
+
+.loginBtn
+{
+	display: flex;
+	justify-content: center;
+}
+
+input[type="text"] 
+{
+	font-size: large;
+	height: 100%;
+	width: 100.25%;
+	box-sizing: border-box;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+	border-top-style: hidden;
+	border-right-style: hidden;
+	border-left-style: hidden;
+	border-bottom-style: hidden;
+	font-family: "Jost", monospace;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	padding-top: 10px;
+}
+
+.login1{
+	font-size: larger;
+  	width: 75px;
+  	height: 40px;
+  	text-align: center;
+	border-top-style: hidden;
+	border-right-style: hidden;
+	border-left-style: hidden;
+	border-bottom-style: hidden;
+	font-family: "Jost", monospace;
+	background-color: #e8e8e8;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+
+.login1:hover{
+	cursor:pointer;
+	background-color: rgb(179, 174, 174);
+}
