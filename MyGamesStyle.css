@@ -304,6 +304,15 @@ h5 {
     ". i . b b b b";
 }
 
+.favItem {
+  display: grid;
+  grid-template-columns: 20px 150px 50px repeat(4, auto);
+  grid-template-areas:
+    ". i . n n n n"
+    ". i . p p p p"
+    ". i . b b b b";
+}
+
 #gameImage {
   grid-area: i;
   align-items: flex-start;

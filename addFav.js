@@ -156,8 +156,9 @@ function displayGames(){
 
 function addFav(game){
     if(favs.includes(displayed[game]) == false){
+    favs.push(displayed[game]);
     selectElement('.favGamesInside').innerHTML += `
-        <div class = "item">
+        <div class = "favItem">
             <div id="gameImage">
                 <img src=${displayed[game].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
             </div>
@@ -170,11 +171,11 @@ function addFav(game){
                 <h5>Rating: ${displayed[game].gameRating}</h5>
             </div>
 
-            <button id = btn type = "button">Remove</button>
+            <button id = btn type = "button" onclick="removeFav(${favSearch(displayed[game].gameName)})">Remove</button>
         </div>
 
     `;
-    favs.push(displayed[game]);
+    
     }
 }
 
@@ -236,4 +237,14 @@ function gameCount(){
 
 function gameSearch(name){
     return database.findIndex(x => x.gameName === name);
+}
+
+function favSearch(name){
+    return favs.findIndex(x => x.gameName === name);
+}
+
+function removeFav(index){
+    var toDelete = document.querySelectorAll('.favItem')[index];
+    toDelete.outerHTML = ``;
+    favs.splice(index,1);
 }
