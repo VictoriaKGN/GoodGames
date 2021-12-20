@@ -66,7 +66,7 @@ h1{
   display: grid;
   /*padding-bottom: 60px;*/
   /*overflow-y: auto;*/
-  gap: 10px;
+  gap: 1em;
   grid-template-columns: repeat(6,1fr) ;
   /*grid-template-rows: 0px repeat(3, minmax( 10px, 1fr ));*/
   grid-template-rows: 0px repeat(3, minmax(1fr,20vh)); /*what do I need to do to fix this????*/
