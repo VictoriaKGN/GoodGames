@@ -118,7 +118,15 @@ function results()
                     </div>
 
                     <div id = "gameRating">
-                        <h4>Rating: ${database[i].gameRating}</h4>
+                        <h4>Avg. Rating: ${database[i].gameRating}</h4>
+                    </div>
+
+                    <div id = "gameTags">
+                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tags: ${database[i].gameTags}</h4>
+                    </div>
+
+                    <div id = "gameConsoles">
+                        <h4>&nbsp;&nbsp;&nbsp;Consoles: ${database[i].gameConsoles}</h4>
                     </div>
 
                     <button id = btn type = "button" onclick = "addGame(\'${database[i].gameName}\')">Add to My Games</button>                
@@ -147,7 +155,15 @@ function results()
                     </div>
 
                     <div id = "gameRating">
-                        <h4>Rating: ${database[i].gameRating}</h4>
+                        <h4>Avg. Rating: ${database[i].gameRating}</h4>
+                    </div>
+
+                    <div id = "gameTags">
+                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tags: ${database[i].gameTags}</h4>
+                    </div>
+
+                    <div id = "gameConsoles">
+                        <h4>&nbsp;&nbsp;&nbsp;Consoles: ${database[i].gameConsoles}</h4>
                     </div>
 
                     <button id = btn type = "button" onclick = "addGame(\'${database[i].gameName}\')">Add to My Games</button>
