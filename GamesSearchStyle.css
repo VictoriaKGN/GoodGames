@@ -279,7 +279,7 @@ input[type="submit"]:hover {
 }
 
 .topResults-item {
-  padding-left: 100px;
+  padding-left: 7%;
   /*display: grid;
   grid-template-columns: 10px 50px 50px repeat(5, auto);
   grid-template-areas:
@@ -327,8 +327,8 @@ input[type="submit"]:hover {
   grid-area: i;
   float: left;
   margin-top: 20px;
-  margin-right: 50px;
-  
+  margin-right: 25px;
+
 }
 
 #gameName {
