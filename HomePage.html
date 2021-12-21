@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GoodGames</title>
+  <link rel="stylesheet" type="text/css" href="HomePage.css"/>
+  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
+    <!-- source: https://github.com/indestructible-type/Jost -->
+  <body style="background-color:#383838;"></body>
+  <script type="text/javascript" src="HomePage.js"></script>
+</head>
+<body onload="displayGames();">  
 
+  <div class="header">
+    <div id="logo">
+      <a href="#"> <img src="GG.jpg" alt="GoodGames" style="width:60px;height:60px;"> </a>
+    </div>
+    
+    <div class="homeTitle">
+      <h3>GoodGames</h3>
+    </div>
+
+    <div id="searchBar">
+      <form action="GamesSearch.html">
+        <input type="submit" value="Search" /> 
+      </form>
+    </div>
+
+    <div id="profile">
+      <a href="profile.html"> <img src="profile.png" alt="profile image" style="width:60px;height:60px;"> </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="myGames">
+      <a href="My Games.html"> <h2>My Games</h2> </a>
+      <div id="myGamesInside"> </div>
+    </div>
+
+    <div id="myGoals">
+      <a href="myGoals.html"> <h2>My Goals</h2> </a>
+      <ul>
+        <li>Finish Portal</li>
+        <li>7/10 hours remaining</li>
+      </ul>
+    </div>  
+
+    <div id="friends">
+      <a href="chat.html"> <h2>Friends</h2> </a>
+      <ul>
+        <li>3 Online</li>
+        
+        <li>2 Away</li>
+      </ul>
+    </div>
+
+    <div id="chats">
+      <a href="chat.html"> <h2>Chats</h2> </a>
+      <p>No unread messages.</p>
+    </div>
+
+    <div id="recs">
+      <h2>Recommendations</h2>
+      <ul>
+        <li>Super Mario Bros. (NES)</li>
+        <li>Terraria (PC)</li>
+        <li>League of Legends (PC)</li>
+      </ul>
+    </div>
+
+    <div id="notifs">
+      <h2>Notifications</h2>
+      <p>No new notifications.</p>
+    </div>
+
+  </div>
+</body>
+</html>

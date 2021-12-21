@@ -1,0 +1,226 @@
+body {
+  font-family: "Jost", monospace;
+  background-color: #fff;
+  font-size: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+input {
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  color: #000;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  font-family: "Jost", monospace;
+}
+
+input[type="text"] {
+  font-size: x-large;
+  width: 85%;
+  height: 50px;
+}
+
+input[type="submit"] {
+  font-size: larger;
+  text-align: center;
+  width: 120px;
+  height: 60px;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(179, 174, 174);
+}
+
+p {
+  padding-left: 30px;
+}
+
+ul {
+  list-style-type: none;
+  line-height: 2em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color:#000;
+}
+
+h2{
+  text-align: center;
+  text-decoration: none;
+  margin-top: 0px;
+  padding-top: 10px;
+  background-color: #e8e8e8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: xx-large;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  margin-top: 7px;
+}
+
+h4 {
+  margin-bottom: 0;
+  margin-top: 30px;
+  font-size: x-large;
+}
+
+h5 {
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 50%;
+  }
+
+
+/********** classes ***********/
+
+.header {
+  display: flex;
+  border: none;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.homeTitle {
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+  width:70%;
+  height: 60px;
+}
+
+.container {
+  font-size: 100%;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 1fr repeat(5, minmax(120px, 2fr));
+  grid-template-rows: 1px repeat(2, minmax(150px,30vmin)) 60px;
+  grid-template-areas:
+      ". . . . . ."
+      "m m g g f c"
+      "m m r r n n"
+      "m m r r n n";
+}
+
+.container > div {
+  height: 100%;
+  box-shadow: 5px 10px 10px #161616;
+  border-radius: 5px;
+  background-color: lightgrey;
+}
+
+
+
+.item {
+  display: grid;
+  grid-template-columns: 20px 100px  50px repeat(4, auto);
+  grid-template-areas:
+    ". i . n n n n"
+    ". i . p p p p"
+    ". . . . . . ."
+    ". . . . . . ."
+    ". . . . . . .";
+}
+
+/********** IDs ***********/
+
+#logo {
+  flex-basis: 60px;
+  border-radius: 5px;
+}
+
+#searchBar {
+  flex-grow: 1;
+  flex-shrink: 1;
+  place-self: left;
+  padding-left: 5px;
+}
+
+#profile {
+  flex-basis: 60px;
+}
+
+#myGames {
+  margin-top: 0;
+  grid-area: m;
+  text-align: center;
+  height: 100%;
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: fr;
+  grid-template-areas:
+    "."
+    "a";
+  /* for scrolling with overflow: overflow: scroll; */
+}
+
+#myGamesInside{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+  text-align: start;
+  grid-area: a;
+}
+
+#myGoals {
+  grid-area: g;
+}
+
+#friends {
+  grid-area: f;
+}
+
+#chats {
+  grid-area: c;
+}
+
+#recs {
+  grid-area: r;
+  /* for scrolling with overflow: overflow: scroll; */
+}
+
+#notifs {
+  grid-area: n;
+}
+
+#gameImage {
+  grid-area: i;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#gameName {
+  grid-area: n;
+  text-align: start;
+}
+
+#gameRating {
+  grid-area: p;
+  text-align: start;
+}
