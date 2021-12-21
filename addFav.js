@@ -91,8 +91,7 @@ function add(){
     let addName = sessionStorage.getItem("gameToAdd");
     if(sessionStorage.getItem("gameToAdd") != undefined){
         let addIndex = gameSearch(addName);
-        
-                selectElement('.myGamesInside').innerHTML = `
+            selectElement('.myGamesInside').innerHTML = `
                     <div class = "item">
                         <div id="gameImage">
                             <img src=${database[addIndex].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
@@ -104,16 +103,16 @@ function add(){
 
                         <div id = "gameRating">
                             <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                    <label for="star5" title="text">5 stars</label>
-                                <input type="radio" id="star4" name="rate" value="4" />
-                                    <label for="star4" title="text">4 stars</label>
-                                <input type="radio" id="star3" name="rate" value="3" />
-                                    <label for="star3" title="text">3 stars</label>
-                                <input type="radio" id="star2" name="rate" value="2" />
-                                    <label for="star2" title="text">2 stars</label>
-                                <input type="radio" id="star1" name="rate" value="1" />
-                                    <label for="star1" title="text">1 star</label>
+                                <input type="radio" id="star${displayed.length*5+5}" name="rate${displayed.length}" value="5" />
+                                    <label for="star${displayed.length*5+5}" title="text">5 stars</label>
+                                <input type="radio" id="star${displayed.length*5+4}" name="rate${displayed.length}" value="4" />
+                                    <label for="star${displayed.length*5+4}" title="text">4 stars</label>
+                                <input type="radio" id="star${displayed.length*5+3}" name="rate${displayed.length}" value="3" />
+                                    <label for="star${displayed.length*5+3}" title="text">3 stars</label>
+                                <input type="radio" id="star${displayed.length*5+2}" name="rate${displayed.length}" value="2" />
+                                    <label for="star${displayed.length*5+2}" title="text">2 stars</label>
+                                <input type="radio" id="star${displayed.length*5+1}" name="rate${displayed.length}" value="1" />
+                                    <label for="star${displayed.length*5+1}" title="text">1 star</label>
                             </div>
                         </div>
 
@@ -140,7 +139,18 @@ function displayGames(){
                     </div>
 
                     <div id = "gameRating">
-                        <h5>Rating: ${added[i].gameRating}</h5>
+                        <div class="rate">
+                            <input type="radio" id="star${displayed.length*5+5}" name="rate${displayed.length}" value="5" />
+                                <label for="star${displayed.length*5+5}" title="text">5 stars</label>
+                            <input type="radio" id="star${displayed.length*5+4}" name="rate${displayed.length}" value="4" />
+                                <label for="star${displayed.length*5+4}" title="text">4 stars</label>
+                            <input type="radio" id="star${displayed.length*5+3}" name="rate${displayed.length}" value="3" />
+                                <label for="star${displayed.length*5+3}" title="text">3 stars</label>
+                            <input type="radio" id="star${displayed.length*5+2}" name="rate${displayed.length}" value="2" />
+                                <label for="star${displayed.length*5+2}" title="text">2 stars</label>
+                            <input type="radio" id="star${displayed.length*5+1}" name="rate${displayed.length}" value="1" />
+                                <label for="star${displayed.length*5+1}" title="text">1 star</label>
+                        </div>
                     </div>
 
                     <button id = btn type = "button" onclick="addFav(${i})">Add to My Favourites</button>
@@ -156,25 +166,25 @@ function displayGames(){
 
 function addFav(game){
     if(favs.includes(displayed[game]) == false){
-    favs.push(displayed[game]);
-    selectElement('.favGamesInside').innerHTML += `
-        <div class = "favItem">
-            <div id="gameImage">
-                <img src=${displayed[game].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
+        favs.push(displayed[game]);
+        var stars = document.querySelectorAll('.rate')[game];
+        selectElement('.favGamesInside').innerHTML += `
+            <div class = "favItem">
+                <div id="gameImage">
+                    <img src=${displayed[game].gamePicture} alt="profile image" style="width:100px; height:150px; border-radius: 5px;">
+                </div>
+
+                <div id = "gameName">
+                    <h4>${displayed[game].gameName}</h4>
+                </div>
+                <div id = "gameRating">
+                    <h5>${Math.floor((Math.random() * 20) + 1)} Hours Played</h5>
+                </div>
+
+                <button id = btn type = "button" onclick="removeFav(favSearch(displayed[${game}].gameName))">Remove</button>
             </div>
 
-            <div id = "gameName">
-                <h4>${displayed[game].gameName}</h4>
-            </div>
-
-            <div id = "gameRating">
-                <h5>Rating: ${displayed[game].gameRating}</h5>
-            </div>
-
-            <button id = btn type = "button" onclick="removeFav(${favSearch(displayed[game].gameName)})">Remove</button>
-        </div>
-
-    `;
+        `;
     
     }
 }
@@ -238,6 +248,7 @@ function gameCount(){
 //finds the game in the displayed list and returns its index 
 
 function gameSearch(name){
+
     return database.findIndex(x => x.gameName === name);
 }
 
