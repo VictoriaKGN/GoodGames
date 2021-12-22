@@ -1,11 +1,11 @@
 body {
-  font-family: "Jost", monospace;
+  font-family: "Arial", monospace;
   background-color: #fff;
   font-size: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 1%;
+  margin-right: 1%;
   margin-top: 1%;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
   height: 100vh;
 }
 
@@ -14,24 +14,26 @@ input {
   color: #000;
   border: none;
   background-color: rgb(182, 182, 182);
+  padding-left: 10px;
 }
 
 input[type="text"] {
   font-size: x-large;
-  width: 85%;
+  width: 100%;
   height: 50px;
 }
 
 input[type="submit"] {
   font-size: larger;
   text-align: center;
-  width: auto;
+  width: 100%;
   height: 30px;
   opacity: 0.5;
+  font-family: "Consolas", monospace;
 }
 
 input[type="submit"]:hover {
-  background-color: rgb(204, 204, 204);
+  background-color: rgb(179, 174, 174);
 }
 
 p {
@@ -39,7 +41,7 @@ p {
 }
 
 ul {
-  list-style-type:square;
+  list-style-type: square;
   line-height: 1.7em;
 }
 
@@ -48,7 +50,7 @@ a {
   color: #000;
 }
 
-h2{
+h2 {
   text-align: center;
   text-decoration: none;
   margin-top: 0px;
@@ -58,6 +60,7 @@ h2{
   border-top-right-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding-bottom: 5px;
+  font-family: "Consolas", monospace;
 }
 
 h3 {
@@ -66,6 +69,7 @@ h3 {
   text-decoration: none;
   color: black;
   margin-top: 7px;
+  padding-top: 3px;
 }
 
 h4 {
@@ -86,7 +90,7 @@ h5 {
   margin-top: 0px;
 }
 
-img{
+img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -95,35 +99,35 @@ img{
   width: 50%;
 }
 
-
 /********** classes ***********/
 
 .header {
   display: flex;
   border: none;
   justify-content: space-between;
-  gap: 2em;
+  gap: 30px;
+  font-family: "Consolas", monospace;
 }
 
 .homeTitle {
   background-color: #e8e8e8;
   border-radius: 5px;
   box-shadow: 5px 10px 10px #161616;
-  width:100%;
+  width: 100%;
   height: 60px;
 }
 
 .container {
   font-size: 100%;
   display: grid;
-  gap:30px;
+  gap: 30px;
   grid-template-columns: minmax(150px, 1fr) repeat(5, minmax(100px, 2fr));
-  grid-template-rows: 1px repeat(2, minmax(150px,30vmin)) 60px;
+  grid-template-rows: 1px repeat(2, minmax(150px, 30vh)) 60px;
   grid-template-areas:
-      ". . . . . ."
-      "c c b b b b"
-      "c c b b b b"
-      "c c e e e e";
+    ". . . . . ."
+    "c c b b b b"
+    "c c b b b b"
+    "c c e e e e";
 }
 
 .container > div {
@@ -159,17 +163,14 @@ img{
   font-style: italic;
   font-size: medium;
   display: inline;
-  color:rgb(100, 100, 100);
+  color: rgb(100, 100, 100);
 }
 
 .chatHeader {
   display: grid;
   gap: 1em;
-  margin-right: 10px;
-  margin-left: 10px;
   grid-template-columns: repeat(8, minmax(20px, 2fr));
-  grid-template-areas: 
-      "h h h h h t t s";
+  grid-template-areas: "h h h h h t t s";
 }
 
 .chatInner {
@@ -180,7 +181,7 @@ img{
   margin-right: 10px;
   grid-template-rows: repeat(3, 30px) auto;
   grid-template-columns: 3fr 1fr 2fr;
-  grid-template-areas: 
+  grid-template-areas:
     "k . ."
     ". . l"
     "m . .";
@@ -191,10 +192,10 @@ img{
   font-size: medium;
   padding: 10px;
   background-color: rgb(190, 190, 190);
-  border-style:none;
+  border-style: none;
   border-radius: 10px;
-  width:fit-content;
-  height:fit-content;
+  width: fit-content;
+  height: fit-content;
 }
 
 .message2 {
@@ -202,9 +203,9 @@ img{
   font-size: medium;
   padding: 10px;
   background-color: rgb(190, 190, 190);
-  border-style:none;
+  border-style: none;
   border-radius: 10px;
-  width:fit-content;
+  width: fit-content;
   padding-bottom: 30px;
 }
 
@@ -216,7 +217,7 @@ img{
   border-radius: 10px;
   width: fit-content;
   height: fit-content;
-  padding:10px;
+  padding: 10px;
   background-color: rgb(223, 223, 223);
 }
 
@@ -224,14 +225,29 @@ img{
   grid-area: e;
   display: grid;
   grid-template-columns: auto 80px;
-  grid-template-areas: 
-      "i j";
+  grid-template-areas: "i j";
 }
 
 /********** IDs ***********/
-  
+
 #logo {
   flex-basis: 60px;
+  box-shadow: 5px 10px 10px #161616;
+}
+
+#search:hover
+{
+  background-color: rgb(179, 174, 174);
+  cursor: pointer;
+}
+
+#ggLogo {
+  border-radius: 5px;
+  box-shadow: 5px 10px 10px #161616;
+}
+
+#profImg {
+  border-radius: 5px;
   box-shadow: 5px 10px 10px #161616;
 }
 
@@ -257,11 +273,15 @@ img{
 
 #chatUser {
   grid-area: h;
+  padding-left: 10px;
+  font-family: "Consolas", monospace;
+  font-size: larger;
 }
 
 #searchChat {
   grid-area: s;
   font-size: medium;
+  width: 90%;
 }
 
 #searchChatEntry {
@@ -272,13 +292,13 @@ img{
 
 #msgEntry {
   grid-area: i;
-  opacity: 0.5;
+  background-color: lightgrey;
 }
 
 #msgSend {
   grid-area: j;
   width: 80px;
   justify-self: right;
-  height:auto;
+  height: auto;
   opacity: 0.5;
 }
