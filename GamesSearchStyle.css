@@ -43,7 +43,6 @@ input {
   background-color: #e8e8e8;
   border-radius: 5px;
   color: #000;
-  box-shadow: 5px 10px 10px #161616;
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
@@ -59,6 +58,7 @@ input[type="text"] {
   padding-left: 2%;
   margin-left: 0;
   box-sizing: border-box;
+  box-shadow: 5px 10px 10px #161616;
 }
 
 input[type="submit"] {
@@ -68,11 +68,14 @@ input[type="submit"] {
   text-align: center;
   margin-left: 20%;
   font-family: "Consolas", monospace;
+  box-shadow: 5px 10px 10px #161616;
 }
 
 input[type="submit"]:hover {
   background-color: rgb(179, 174, 174);
 }
+
+
 
 .header {
   font-size: 100%;
@@ -211,10 +214,6 @@ input[type="submit"]:hover {
   text-decoration: none;
   display: block;
   position: relative;
-}
-
-#cb
-{
   box-shadow: none;
 }
 
