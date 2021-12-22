@@ -201,12 +201,14 @@ function tagCount(tag){
     return count;
 }
 
+/*
 google.charts.load('current', {'packages':['corechart']});
 google.charts.load("current", {packages:["timeline"]});
 google.charts.setOnLoadCallback(drawChart);
+*/
 
 //implements the pie graph 
-
+/*
 function drawChart() {
 
   var data = google.visualization.arrayToDataTable([
@@ -236,9 +238,10 @@ function drawChart() {
   chart.draw(data, options);
 
 }
+*/
 
 //counts the amount of games in my games 
-
+gameCount();
 function gameCount(){
     selectElement('.totalGamesInside').innerHTML += `
         <h1>${displayed.length}</h1>
@@ -266,4 +269,151 @@ function removeFav(index){
     favs.splice(index,1);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//timeline graph
+
+
+
+var StatsNewGamesData = [
+    {'month': "April 2021",     'hours': 1},
+    {'month': "May 2021",       'hours': 4},
+    {'month': "June 2021",      'hours': 8},
+    {'month': "July 2021",      'hours': 2},
+    {'month': "August 2021",    'hours': 4},
+    {'month': "September 2021", 'hours': 0},
+    {'month': "October 2021",   'hours': 0},
+    {'month': "November 2021",  'hours': 1},
+    {'month': "December 2021",  'hours': 3},
+];
+
+function getHours(hoursData) {
+    var data = [];
+    for( i=0; i<hoursData.length; i++ ){
+        data[i] = hoursData[i].hours;
+    }
+    console.log(data);
+    return data;
+}
+
+function getMonths(hoursData) {
+    var data = [];
+    for( i=0; i<hoursData.length; i++ ){
+        data[i] = hoursData[i].month;
+    }
+    console.log(data);
+    return data;
+}
+
+function getNames(pieData) {
+    var data = [];
+    for( i=0; i<pieData.length; i++ ){
+        data[i] = pieData[i].name;
+    }
+    console.log(data);
+    return data;
+}
+
+function createMonthChart(hoursData, typeOfChart, xTitle, graphLabel, yTitle) {
+    return chart = new Chart(ctx, {
+        type: typeOfChart,
+        data: {
+            labels: getMonths(hoursData),
+            datasets: [{
+                label: graphLabel,
+                data: getHours(hoursData),
+                backgroundColor: [
+                    'rgba(255, 159, 64, 0.5)'
+                ],
+            }]
+        },
+        options: {
+            parsing: {
+                xAxisKey: xTitle,
+                yAxisKey: 'hours'
+            },
+            scales: {
+                xAxis: {
+                    title: xTitle,
+                    display: false
+                },
+                x: {
+                    display: true,
+                    title: {
+                    display: true,
+                    text: xTitle,
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                    display: true,
+                    text: yTitle,
+                    },
+                    min: 0,
+                },
+            },
+            responsiveness: true,
+            interaction: {
+                mode: 'x'
+            },
+        } 
+    });
+}
+
+const ctx2 = document.getElementById('pie-graph').getContext('2d');
+
+
+function createChart2(pieData) {
+    return chart = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: getNames(pieData),
+            datasets: [{
+                label: '# of games',
+                data: getHours(pieData),
+                backgroundColor: [
+                    'rgba(255, 240, 64, 0.5)',
+                    'rgba(40, 255, 150, 0.5)',
+                    'rgba(56, 255, 245, 0.5)',
+                ],
+            }]
+        },
+        options: {
+        responsive: true,
+        },
+    });
+}
+
+var pieChartData = [
+    {'name': "Open World", 'hours': 2},
+    {'name': "Arcade", 'hours': 2},
+    {'name': "Racing", 'hours': 1},
+];
+
+var myChart;
+var myChart2;
+const ctx = document.getElementById('timeline-graph').getContext('2d');
+console.log("hello");
+makeGraphs();
+
+function makeGraphs() {
+    console.log("about to make graph");
+    myChart = createMonthChart(StatsNewGamesData, 'bar', "Month", "# of new games", "New Games");
+    myChart2 = createChart2(pieChartData);
+    console.log("made graph");
+}
 
