@@ -2,10 +2,10 @@ body {
   font-family: "Jost", monospace;
   background-color: #fff;
   font-size: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 1%;
+  margin-right: 1%;
   margin-top: 1%;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
 }
 
 input {
@@ -28,9 +28,12 @@ input[type="text"] {
 
 input[type="submit"] {
   font-size: larger;
+  width: 100%;
+  height: 50px;
   text-align: center;
-  width: 120px;
-  height: 60px;
+  margin-top: 6px;
+  margin-left: 0;
+  box-shadow: 5px 10px 10px #161616;
 }
 
 input[type="submit"]:hover {
@@ -64,6 +67,13 @@ h2{
   border-top-right-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding-bottom: 5px;
+  color: black;
+}
+
+h2:hover
+{
+  background-color: rgb(179, 174, 174);
+  cursor: pointer;
 }
 
 h3 {
@@ -72,6 +82,7 @@ h3 {
   text-decoration: none;
   color: black;
   margin-top: 7px;
+  
 }
 
 h4 {
@@ -102,23 +113,23 @@ img{
   display: flex;
   border: none;
   justify-content: space-between;
-  gap: 2em;
+  gap: 1em;
 }
 
 .homeTitle {
   background-color: #e8e8e8;
   border-radius: 5px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
   width:70%;
   height: 60px;
+  box-shadow: 5px 10px 10px #161616;
 }
 
 .container {
   font-size: 100%;
   display: grid;
-  gap: 2em;
+  gap: 1em;
   grid-template-columns: 1fr repeat(5, minmax(120px, 2fr));
-  grid-template-rows: 1px repeat(2, minmax(150px,30vmin)) 60px;
+  grid-template-rows: 1px repeat(3, minmax(100px,27vh));
   grid-template-areas:
       ". . . . . ."
       "m m g g f c"
@@ -128,12 +139,22 @@ img{
 
 .container > div {
   height: 100%;
+  width: 99.6%;
   box-shadow: 5px 10px 10px #161616;
   border-radius: 5px;
   background-color: lightgrey;
 }
 
+#ggLogo
+{
+  border-radius: 5px;
+  
+}
 
+#profImg
+{
+  border-radius: 5px;
+}
 
 .item {
   display: grid;
@@ -157,7 +178,6 @@ img{
   flex-grow: 1;
   flex-shrink: 1;
   place-self: left;
-  padding-left: 5px;
 }
 
 #profile {
