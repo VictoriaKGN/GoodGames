@@ -83,9 +83,9 @@ function closePopup(popupName) {
     document.getElementById("warning3").style.opacity = "0%";
 
     var most = document.getElementById("option1");
-    most.style.borderColor = "white";
+    most.style.borderColor = "lightgray";
     var least = document.getElementById("option2");
-    least.style.borderColor = "white";
+    least.style.borderColor = "lightgray";
 
     selected="none";
 
@@ -329,13 +329,15 @@ function showGraph() {
 
 document.querySelector("#data").addEventListener("click", showImage);
 */
-function changeColorWhite() {
+function changeBorderColor() {
     var arr = document.getElementsByTagName("li");
     for( i=0; i< arr.length; i++ ) {
-        arr[i].style.borderColor = "white";
+        arr[i].style.borderColor = "lightgray";
     }
 }
 
+var zeldaArchived = false;
+var hoursGoalArchived = false;
 
 function doStuff(input) {
 
@@ -347,72 +349,77 @@ function doStuff(input) {
     }
     
     deactivateButtons();
-    changeColorWhite();
+    changeBorderColor();
     
 
     if( input.id == "hours" || input == "hours" ) {
-        myChart = createHoursChart(StatsHoursWeekData, 'line', "Week", "# of hours");
+        myChart = createHoursChart(StatsHoursWeekData, 'line', "Week", "# of hours", "Hours");
         activateViewByMonth();
         document.getElementById("hours").style.borderColor = "black";
     }
     else if ( input.id == "games" || input == "new" ) {
-        myChart = createMonthChart(StatsNewGamesData, 'bar', "Month", "# of new games");
+        myChart = createMonthChart(StatsNewGamesData, 'bar', "Month", "# of new games", "New Games");
         activateViewCompleted();
         document.getElementById("games").style.borderColor = "black";
     }
     else if(input.id == "finish-zelda") {
-        myChart = createHoursChart(finishZeldaData, 'line', "Date", "Percent Completed");
+        myChart = createHoursChart(finishZeldaData, 'line', "Date", "Percent Completed", "Percent Complete");
         //myChart.options.scales.y.max = 100;
         myChart2 = createChart2(finishZeldaPie);
-        activateArchiveButton()
-        activateAddDataButton(false);
+        if(!zeldaArchived) {
+            activateArchiveButton()
+            activateAddDataButton(false);
+        }
         document.getElementById("finish-zelda").style.borderColor = "black";
     }
     else if(input.id =="hours-less-20" || input == "hours-less-20") {
-        myChart = createHoursChart(hoursLess20WeekData, 'bar', "Date", "# of hours");
+        myChart = createHoursChart(hoursLess20WeekData, 'bar', "Date", "# of hours", "Hours");
         myChart2 = createChart2(hoursLess20WeekPie);
-        activateArchiveButton();
-        activateAddDataButton(true);
+        if(!hoursGoalArchived) {
+            activateArchiveButton();
+            activateAddDataButton(true);
+        }
+
         document.getElementById("hours-less-20").style.borderColor = "black";
     }
     else if(input.id == "finish-portal") {
-        myChart = createHoursChart(finishPortalData, 'line', "Date", "Percent Completed");
+        myChart = createHoursChart(finishPortalData, 'line', "Date", "Percent Completed", "Percent Complete");
         //myChart.options.scales.y.max = 100;
         myChart2 = createChart2(finishPortalPie);
         document.getElementById("finish-portal").style.borderColor = "black";
     }
     else if(input.id == "finish-fallout") {
-        myChart = createHoursChart(finishFalloutData, 'line', "Date", "Percent Completed");
+        myChart = createHoursChart(finishFalloutData, 'line', "Date", "Percent Completed", "Percent Complete");
         //myChart.options.scales.y.max = 100;
         myChart2 = createChart2(finishFalloutPie);
         document.getElementById("finish-fallout").style.borderColor = "black";
     }
     else if(input.id == "hours-more-5" || input == "hours-more-5-week-2") {
-        myChart = createHoursChart(hoursMore5WeekDataWeek2, 'bar', "Date", "# of hours");
+        myChart = createHoursChart(hoursMore5WeekDataWeek2, 'bar', "Date", "# of hours", "Hours");
         myChart2 = createChart2(hoursMore5WeekPieWeek2);
         activateLeftArrowButton();
         document.getElementById("hours-more-5").style.borderColor = "black";
     }
     else if(input.id == null  && input == "hours-more-5-week-1" ) {
-        myChart = createHoursChart(hoursMore5WeekDataWeek1, 'bar', "Date", "# of hours");
+        myChart = createHoursChart(hoursMore5WeekDataWeek1, 'bar', "Date", "# of hours", "Hours");
         myChart2 = createChart2(hoursMore5WeekPieWeek1);
         activateRightArrowButton();
         document.getElementById("hours-more-5").style.borderColor = "black";
     }
     else if(input.id == null && input == "hours-by-month") {
-        myChart = createMonthChart(StatsHoursMonthData, 'line', "Month", "# of hours");
+        myChart = createMonthChart(StatsHoursMonthData, 'line', "Month", "# of hours", "Hours");
         activateViewByWeek();
         document.getElementById("hours").style.borderColor = "black";
     }
     else if(input.id == null && input =="completed") {
-        myChart = createMonthChart(StatsCompletedGamesData, 'bar', "Month", "# of games completed");
+        myChart = createMonthChart(StatsCompletedGamesData, 'bar', "Month", "# of games completed", "Games Completed");
         activateViewNew();
         document.getElementById("games").style.borderColor = "black";
     }
     else{
         var name = input.id.split("-");
         if( name[1] == "finish") {
-            myChart = createHoursChart(gameNewGoalData, 'line', "Date", "Percent Completed");
+            myChart = createHoursChart(gameNewGoalData, 'line', "Date", "Percent Completed", "Percent Complete");
             //myChart.options.scales.y.max = 100;
             myChart2 = createChart2(gameNewGoalPie);
             activateArchiveButton()
@@ -420,7 +427,7 @@ function doStuff(input) {
             document.getElementById(input.id).style.borderColor = "black";
         }
         else if( name[1] == "hours") {
-            myChart = createHoursChart(hoursNewGoalData, 'bar', "Date", "# of hours");
+            myChart = createHoursChart(hoursNewGoalData, 'bar', "Date", "# of hours", "Hours");
             myChart2 = createChart2(hoursNewGoalPie);
             activateArchiveButton();
             activateAddDataButton(false);
@@ -496,21 +503,37 @@ function deactivateButtons() {
     document.getElementById("button-1").removeEventListener("click", viewCompleted );
     document.getElementById("button-1").removeEventListener("click", viewNew );
 
-    document.getElementById("button-2").removeEventListener("click", archiveCurrentGoal );
+    document.getElementById("button-2").removeEventListener("click", checkIfWantToArchive );
     document.getElementById("button-1").removeEventListener("click", addData );
 }
 
 function activateArchiveButton() {
     document.getElementById("button-2").style.display = "block";
     document.getElementById("button-2").innerHTML = "Archive Goal";
-    document.getElementById("button-2").addEventListener("click", archiveCurrentGoal );
+    document.getElementById("button-2").addEventListener("click", checkIfWantToArchive );
+}
+function checkIfWantToArchive(){
+    openPopup("archive-warning");
 }
 function archiveCurrentGoal() {
+    console.log("Running archive goal");
     var arr = document.getElementsByTagName("li");
+    let uniqueArr = [...new Set(arr)];
+    console.log("We have " + uniqueArr);
     for( i=0; i< arr.length; i++ ) {
-        if( arr[i].style.borderColor == "black" ) {
+        console.log("i is " + i);
+        if( uniqueArr[i].style.borderColor == "black" ) {
+            console.log("Looking at the arr[i] of " + uniqueArr[i].id);
             //then we delete the node and add it to the archived goals ul
-            document.getElementById("archived-list").appendChild(document.getElementById(arr[i].id));
+            document.getElementById("archived-list-ul").appendChild(document.getElementById(uniqueArr[i].id));
+            if(uniqueArr[i].id == "finish-zelda") {
+                zeldaArchived = true;
+                console.log("Archived zelda goal!!!");
+            }
+            else if(uniqueArr[i].id == "hours-less-20") {
+                hoursGoalArchived = true;
+                console.log("Archived hours goal!!!!");
+            }
         }
     }
     document.getElementById("button-1").style.display = "none";
@@ -889,10 +912,10 @@ var StatsHoursMonthData = [
 
 
 var StatsNewGamesData = [
-    {'month': "January 2021",   'hours': 1},
+    {'month': "January 2021",   'hours': 0},
     {'month': "February 2021",  'hours': 0},
     {'month': "March 2021",     'hours': 0},
-    {'month': "April 2021",     'hours': 0},
+    {'month': "April 2021",     'hours': 1},
     {'month': "May 2021",       'hours': 4},
     {'month': "June 2021",      'hours': 8},
     {'month': "July 2021",      'hours': 2},
@@ -1059,7 +1082,7 @@ const ctx = document.getElementById('graph-1').getContext('2d');
 //var myChart = createChart();
 
 
-function createHoursChart(hoursData, typeOfChart, xTitle, graphLabel) {
+function createHoursChart(hoursData, typeOfChart, xTitle, graphLabel, yTitle) {
     return chart = new Chart(ctx, {
         type: typeOfChart,
         data: {
@@ -1093,7 +1116,7 @@ function createHoursChart(hoursData, typeOfChart, xTitle, graphLabel) {
                     display: true,
                     title: {
                     display: true,
-                    text: 'Hours'
+                    text: yTitle,
                     },
                     min: 0,
                 },
@@ -1111,7 +1134,7 @@ function createHoursChart(hoursData, typeOfChart, xTitle, graphLabel) {
 }
 
 
-function createMonthChart(hoursData, typeOfChart, xTitle, graphLabel) {
+function createMonthChart(hoursData, typeOfChart, xTitle, graphLabel, yTitle) {
     return chart = new Chart(ctx, {
         type: typeOfChart,
         data: {
@@ -1145,7 +1168,7 @@ function createMonthChart(hoursData, typeOfChart, xTitle, graphLabel) {
                     display: true,
                     title: {
                     display: true,
-                    text: 'Hours'
+                    text: yTitle,
                     },
                     min: 0,
                 },

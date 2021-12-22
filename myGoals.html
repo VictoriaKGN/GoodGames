@@ -49,6 +49,7 @@
     </div>
 
     <div id="addingGameGoal" class="popup">
+      <h3 id="title-add-game-goal">Add Game Goal</h3>
       <button onclick="closePopup('addingGameGoal')" id="closeButton">x</button>
       <text id="dropdownTitle">Game:</text>
       <!--<button id="chooseGame"></button>-->
@@ -151,6 +152,7 @@
 
 
     <div id="addingHoursGoal" class="popup">
+      <h3 id="title-add-hours-goal">Add Hours Goal</h3>
       <button onclick="closePopup('addingHoursGoal')" id="closeButton">x</button>
       <text id="text_Play">Play:</text>
       <eitherText id=choiceBetweenTwo>
@@ -255,16 +257,23 @@
 
     <div id="archived" class="sideGridItem">
       <h2>Archived</h2>
-      <ul id="archived-list">
+      <ul id="archived-list-ul">
         <li class="finish-archived" id="finish-portal">Finish Portal by Sept. 3</li>
         <li class="finish-archived" id="finish-fallout">Finish Fallout4 by July 8</li>
         <li class="hours-archived" id="hours-more-5">Play more than 5 hours per week</li>
       </ul>
     </div>
 
+
+    <div id="archive-warning" class="popup">
+      <h4 id="title-archive-warning">You are about to archive this goal. This cannot be undone. Do you want to proceed?</h4>
+      <button onclick="closePopup('archive-warning')" id="archive-no">NO</button>
+      <button onclick="archiveCurrentGoal(), closePopup('archive-warning')" id="archive-yes">YES</button>
+    </div>
+
     <div id="stats" class="sideGridItem">
       <h2>Stats</h2>
-      <ul>
+      <ul id="stats-list-ul">
         <li id="hours">Hours</li>
         <li id="games">Games</li>
       </ul>
@@ -295,6 +304,7 @@
       </div>
 
       <div id="editing-data" class="popup">
+        <h3 id="title-edit-data">Add Data To Goal: Play less than 20 hours per week</h3>
         <button onclick="closePopup('editing-data')" id="closeButton">x</button>
         <text id="text-I-played">I played:</text>
         <text id=text-hours>Hours:</text>
