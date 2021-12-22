@@ -493,13 +493,18 @@ li:hover {
   grid-template-areas:
       ". . .  .  .  .  .  .  .  .  .  .  .  ."
       ". . .  .  TT TT TT TT TT TT .  .  CB ."
-      ". . .  .  .  DT DT DM DM DM DM .  .  ."
+      ". . .  .  .  .  DT DT .  .  .  .  .  ."
+      ". . .  .  .  DM DM DM DM .  .  .  .  ."
       ". . .  FF FF FF FF FF FF FF FF .  .  ."
-      ". . .  .  DD DD MM MM YY YY .  .  .  ."
-      ". . .  .  .  .  .  .  .  .  .  .  .  ."
+      ". . .  .  .  DF DF DF DF .  .  .  .  ."
       ". . .  .  .  .  AG AG .  .  WW WW WW ."
       ". . .  .  .  .  .  .  .  .  .  .  .  ."
       ;
+}
+
+#select-date-form {
+  grid-area: DF;
+  text-align: center;
 }
 
 #title-add-game-goal {

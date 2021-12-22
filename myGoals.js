@@ -51,6 +51,7 @@ function closePopup(popupName) {
     var selectHours = document.getElementById("selectHours");
     selectHours.innerHTML = "-Select Hours-";
 
+    /*
     var selectDay = document.getElementById("selectDay");
     selectDay.innerHTML = "-Select Day-";
 
@@ -59,6 +60,7 @@ function closePopup(popupName) {
 
     var selectYear = document.getElementById("selectYear");
     selectYear.innerHTML = "-Select Year-";
+    */
 
     var selectGame = document.getElementById("selectGame");
     selectGame.innerHTML = "-Select Game-";
@@ -151,24 +153,48 @@ function addHoursGoalToList(input) {
 var x=1;
 
 function addGameGoalToList(input) {
+    //test to see if form works
+    
+    var form = document.getElementById("select-date-form");
+    console.log("Here is the form: " + form);
+
+    console.log("Data: " + form.innerHTML);
+
+    var dateInput = form.value;
+    console.log("date input: " + dateInput);
+    var dateEntered = new Date(dateInput);
+    console.log("date entered: " + dateEntered);
+    var givenDate = dateEntered.toDateString();
+    console.log("given date: " + givenDate);
+    
+
+    //var form = document.getElementById("select-date-form");
     var currentGoals = document.getElementById("current-goals-ul");
 
     var canBeAdded = false;
 
     var text = "nothing1";
     const NONE = "none";
-    if( !((document.getElementById("selectDay").innerHTML) === "-Select Day-") && !((document.getElementById("selectMonth").innerHTML) === "-Select Month-")
-          &&  !((document.getElementById("selectYear").innerHTML) === "-Select Year-")  && !((document.getElementById("selectGame").innerHTML) === "-Select Game-")  
-          &&    checkDate() )  {
+    if( //!((document.getElementById("selectDay").innerHTML) === "-Select Day-") && !((document.getElementById("selectMonth").innerHTML) === "-Select Month-")
+          //&&  !((document.getElementById("selectYear").innerHTML) === "-Select Year-")  && !((document.getElementById("selectGame").innerHTML) === "-Select Game-")  
+          !((document.getElementById("selectGame").innerHTML) === "-Select Game-")
+          && ! (givenDate == "Invalid Date") ) {
+          //&&    checkDate() )  {
         //add the goal
         text = "Finish ";
         
         
         text = text + document.getElementById("selectGame").innerHTML + " by ";
-        text = text + document.getElementById("selectMonth").innerHTML + " ";
-        text = text + document.getElementById("selectDay").innerHTML + ", ";
-        text = text + document.getElementById("selectYear").innerHTML + "";
+        //text = text + document.getElementById("selectMonth").innerHTML + " ";
+        //text = text + document.getElementById("selectDay").innerHTML + ", ";
+        //text = text + document.getElementById("selectYear").innerHTML + "";
 
+        var dateInfo = givenDate.split(" ");
+
+        text = text + dateInfo[1] + " ";
+        text = text + dateInfo[2] + ", ";
+        text = text + dateInfo[3] + "";
+ 
 
         //add the goal
         var thing1 = document.createElement("li");
@@ -282,14 +308,14 @@ function selectMost() {
     var most = document.getElementById("option1");
     most.style.borderColor = "black";
     var least = document.getElementById("option2");
-    least.style.borderColor = "orange";
+    least.style.borderColor = "lightgray";
     selected="most";
 
 }
 
 function selectLeast() {
     var most = document.getElementById("option1");
-    most.style.borderColor = "orange";
+    most.style.borderColor = "lightgray";
     var least = document.getElementById("option2");
     least.style.borderColor = "black";
     selected="least";
