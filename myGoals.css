@@ -107,6 +107,7 @@ h1{
   overflow: hidden;
   box-shadow: 5px 10px 10px #161616;
   max-height: 40vh;
+  min-height: 28vh;
   box-shadow: 5px 10px 10px #161616;
 }
 
