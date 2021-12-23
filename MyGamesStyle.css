@@ -61,7 +61,7 @@ img
 .header {
   font-size: 100%;
   display: grid;
-  gap: 1em;
+  gap: 30px;
   padding-top: 0;
   grid-template-columns: 60px repeat(4, minmax(255px, 3fr)) 60px;
   grid-template-rows: 60px;
