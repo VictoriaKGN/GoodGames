@@ -241,7 +241,6 @@ function drawChart() {
 */
 
 //counts the amount of games in my games 
-gameCount();
 function gameCount(){
     selectElement('.totalGamesInside').innerHTML += `
         <h1>${displayed.length}</h1>
