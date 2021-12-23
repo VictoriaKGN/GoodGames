@@ -219,6 +219,7 @@ input[type="submit"] {
   font-family: "Consolas", monospace;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 
