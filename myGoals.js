@@ -85,9 +85,9 @@ function closePopup(popupName) {
     document.getElementById("warning3").style.opacity = "0%";
 
     var most = document.getElementById("option1");
-    most.style.borderColor = "lightgray";
+    most.style.borderColor = "white";
     var least = document.getElementById("option2");
-    least.style.borderColor = "lightgray";
+    least.style.borderColor = "white";
 
     selected="none";
 
@@ -308,14 +308,14 @@ function selectMost() {
     var most = document.getElementById("option1");
     most.style.borderColor = "black";
     var least = document.getElementById("option2");
-    least.style.borderColor = "lightgray";
+    least.style.borderColor = "white";
     selected="most";
 
 }
 
 function selectLeast() {
     var most = document.getElementById("option1");
-    most.style.borderColor = "lightgray";
+    most.style.borderColor = "white";
     var least = document.getElementById("option2");
     least.style.borderColor = "black";
     selected="least";

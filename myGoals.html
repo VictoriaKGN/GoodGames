@@ -19,7 +19,7 @@
     </div>
     
     <div id="myGoals_title">
-      <h1>My Goals</h1>
+      <h3>My Goals</h3>
     </div>
 
     <!--
@@ -35,7 +35,8 @@
   -->
 
     <div id="addGoalButton" onclick="openPopup('chooseGoalType')">
-      <h6>Add Goal</h6>
+      <!--<addGoal id="add-goal-button">Add Goal</addGoal>-->
+      <input type="submit" value="Add Goal">
     </div>
 
     <div id="chooseGoalType" class="popup">
@@ -59,7 +60,6 @@
           <a href="#" onclick="changeGame(this)">Mariokart 8 (Wii-U)</a>
           <a href="#" onclick="changeGame(this)">COD: Blops (PS4)</a>
           <a href="#" onclick="changeGame(this)">Minecract (PC)</a>
-          <a href="#" onclick="changeGame(this)">Portal (PC)</a>
           <a href="#" onclick="changeGame(this)">Pacman (Arcade)</a>
           <a href="#" onclick="changeGame(this)">Wii Sports (Wii)</a>
         </div>
@@ -255,7 +255,7 @@
     <div id="current" class="sideGridItem">
       <h2>Current</h2>
       <ul id="current-goals-ul">
-        <li class="finish" id="finish-zelda">Finish Zelda by Nov 1st, 2022</li>
+        <li class="finish" id="finish-zelda">Finish Mariokart 8 by Nov 1st, 2022</li>
         <li class="hours" id="hours-less-20">Play less than 20 hours per week</li>
       </ul>
     </div>
@@ -263,8 +263,8 @@
     <div id="archived" class="sideGridItem">
       <h2>Archived</h2>
       <ul id="archived-list-ul">
-        <li class="finish-archived" id="finish-portal">Finish Portal by Sept 3, 2021</li>
-        <li class="finish-archived" id="finish-fallout">Finish Fallout4 by July 8, 2021</li>
+        <li class="finish-archived" id="finish-portal">Finish Wii Sports by Sept 3, 2021</li>
+        <li class="finish-archived" id="finish-fallout">Finish Call of Duty: Black Ops by July 8, 2021</li>
         <li class="hours-archived" id="hours-more-5">Play more than 5 hours per week</li>
       </ul>
     </div>
@@ -287,10 +287,10 @@
     <div id="progress">
       
       
-      <div class="progress">
+      <div class="progress" id="progress-box">
         <h2 id="title">Progress</h2>
         <img id="left" src="backArrow.png" class="arrow"></arrow>
-        <img id="right" src="backArrow.png" class="arrow"></arrow>
+        <img id="right" src="forwardArrow.png" class="arrow"></arrow>
         <!--<img src="nothing.jpg" alt="" id="statsImage">-->
         <!--<img src="nothing.jpg" alt="" id="stats-graph">-->
         <!--<img src="marioKart8.jpg" alt="" id="pie-image">-->

@@ -3,14 +3,14 @@ html {
 }
 
 body {
-  font-family: 'Jost', monospace;
+  font-family: 'Consolas', monospace;
   /*background-color: #fff;*/
   /*font-size: 100%;*/
   font-size: large;
   margin-left: 2%;
   margin-right: 2%;
   margin-top: 1%;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
   /*height: 100%;*/
 }
 
@@ -29,13 +29,22 @@ ul {
   padding-bottom: 1em;
 }
 
+
+h3 {
+  font-size: xx-large;
+  text-align: center;
+  margin-top: 12px;
+  text-decoration: none;
+  color: black;
+}
+
 /********** classes ***********/
 
 .header {
   font-size: 100%;
   display: grid;
   /*column-gap: 10px;*/
-  gap: 1em;
+  gap: 30px;
   padding-top: 0px;
   /*grid-template-columns: 1fr repeat(5, minmax(120px, 2fr));*/
   grid-template-columns: 60px repeat(4, minmax(120px, 1fr)) 60px;
@@ -70,10 +79,10 @@ h1{
   display: grid;
   /*padding-bottom: 60px;*/
   /*overflow-y: auto;*/
-  gap: 1em;
+  gap: 30px;
   grid-template-columns: repeat(6,1fr) ;
   /*grid-template-rows: 0px repeat(3, minmax( 10px, 1fr ));*/
-  grid-template-rows: 0px repeat(3, minmax(1fr,20vh)); /*what do I need to do to fix this????*/
+  grid-template-rows: 0px repeat(3, minmax(100px,26.5vh)); /*what do I need to do to fix this????*/
   grid-template-areas:
       ". . . . . ."
       "c c p p p p"
@@ -106,8 +115,9 @@ h1{
     "C";
   overflow: hidden;
   box-shadow: 5px 10px 10px #161616;
-  max-height: 40vh;
-  min-height: 28vh;
+  /*
+  max-height: 33vh;
+  min-height: 28vh;*/
   box-shadow: 5px 10px 10px #161616;
 }
 
@@ -140,9 +150,9 @@ h1{
   /*border-bottom: 3px solid rgb(100, 100, 100);*/
   text-align: center;
   /*padding-bottom: 4px;*/
-  color:rgb(48, 48, 48);
+  /*color:rgb(48, 48, 48);
   margin-block-start: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 0px;*/
 
 }
 /********** IDs ***********/
@@ -171,26 +181,55 @@ h1{
 
 #addGoalButton {
   /*height: 54px;*/
-  border:3px solid rgb(100, 100, 100);  
-  border-radius: 5px;
-  grid-area: b;
-  padding-top: 0px;
-
-
-  border: 2px black;
-  font-size: 150%;
-
-
-
-  font-family: 'Jost', monospace;
   /*border:3px solid rgb(100, 100, 100);  */
+  /*border-radius: 5px;*/
+  grid-area: b;
+  /*padding-top: 0px;*/
+
+
+  /*border: 2px black;
+  font-size: 150%;
+  */
+
+
+  /*font-family: 'Jost', monospace;*/
+  /*border:3px solid rgb(100, 100, 100);  */
+
+  /*
   border-radius: 5px;
   text-align: center;
-  text-decoration-style: bold;
   background-color: #e8e8e8;
-  /*box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);*/
   box-shadow: 5px 10px 10px #161616;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  margin-top: 6px;
+  font-family: "Consolas", monospace;
+  height: 50px;*/
 }
+
+input[type="submit"] {
+  font-size: larger;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  margin-top: 6px;
+  margin-left: 0;
+  box-shadow: 5px 10px 10px #161616;
+  font-family: "Consolas", monospace;
+  border: none;
+  border-radius: 5px;
+}
+
+
+#add-goal-button {
+  text-align: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
 
 h6 {
   height: 100%;
@@ -216,7 +255,14 @@ h6 {
 /*===================================================================*/
 
 h2 {
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  margin-top: 0px;
+  padding-top: 10px;
+  background-color: #e8e8e8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+  padding-bottom: 40px;
 }
 
 
@@ -286,33 +332,46 @@ li:hover {
 
   gap: 10px;
   grid-template-columns: 0px repeat(10,1fr) 0px;
-  grid-template-rows: 50px repeat(5, 1fr) 0px;
+  grid-template-rows: 50px repeat(7, 1fr) 0px;
 
   grid-template-areas:
       "t t t t t t t t t t t t"
+      ". . . . . . . . . . . ."
+      ". . g g g g g g g g . ."
       ". . g g g g g g g g . ."
       ". le g g g g g g g g ri ."
-      ". . g g g g g g g g . ."
-      ". . p p p p . ad ad . . ."
-      ". . p p p p . bu bu . . ."
+      ". . . . . . . . . . . ."
+      ". . p p p p . ad bu . . ."
+      ". . p p p p . .  .  . . ."
       ;
 }
 
 #left {
   grid-area: le;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #right {
   grid-area: ri;
-  transform: rotate(180deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   
+}
+
+#progress-box {
+  position: relative;
 }
 
 .arrow {
   height: 40px;
   border:3px solid rgb(100, 100, 100);  
   border-radius: 5px;
-  display: block;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
   opacity: 50%;
@@ -847,6 +906,7 @@ li:hover {
   cursor: pointer;
   border-style: solid;
   width: fit-content;
+  border-color: white;
   border-radius: 500px;
   padding-left: 5px;
   padding-right: 5px;
@@ -865,6 +925,7 @@ li:hover {
   cursor: pointer;
   border-style: solid;
   width: fit-content;
+  border-color: white;
   border-radius: 500px;
   padding-left: 5px;
   padding-right: 5px;
