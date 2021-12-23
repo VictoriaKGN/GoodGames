@@ -77,8 +77,29 @@ function getResults()
 function loadResults()
 {
     search = sessionStorage.getItem("name");
-    myConsoles = sessionStorage.getItem("consoles").split(",");
-    myTags = sessionStorage.getItem("tags").split(",");
+    let tempConsoles = sessionStorage.getItem("consoles");
+    let tempTags = sessionStorage.getItem("tags");
+
+    if (tempConsoles.length != 0)
+    {
+        tempConsoles = tempConsoles.substring(0, tempConsoles.length-1);
+        myConsoles = tempConsoles.split(",");
+    }
+    else
+    {
+        myConsoles = [];
+    }
+
+
+    if (tempTags.length != 0)
+    {
+        tempTags = tempTags.substring(0, tempTags.length-1);
+        myTags = tempTags.split(",");
+    }
+    else
+    {
+        myTags = [];
+    }
 
     results();
 
@@ -118,15 +139,15 @@ function results()
                     </div>
 
                     <div id = "gameRating">
-                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;Avg. Rating: ${database[i].gameRating}</h4>
+                        <h4>&nbsp;Avg. Rating: ${database[i].gameRating}</h4>
                     </div>
 
                     <div id = "gameTags">
-                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tags: ${database[i].gameTags}</h4>
+                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tags: ${database[i].gameTags}</h4>
                     </div>
 
                     <div id = "gameConsoles">
-                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consoles: ${database[i].gameConsoles}</h4>
+                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;Consoles: ${database[i].gameConsoles}</h4>
                     </div>
 
                     <button id = btn type = "button" onclick = "addGame(\'${database[i].gameName}\')">Add to My Games</button>                
