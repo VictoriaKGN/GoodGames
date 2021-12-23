@@ -270,19 +270,6 @@ function removeFav(index){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //timeline graph
 
 
