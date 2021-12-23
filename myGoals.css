@@ -669,7 +669,7 @@ li:hover {
 }
 
 .day-dropdown-content a:hover {
-  background-color: fuchsia;
+  background-color: rgb(179, 174, 174);
 }
 
 .dayDropdown:hover .day-dropdown-content {
@@ -721,7 +721,7 @@ li:hover {
 }
 
 .month-dropdown-content a:hover {
-  background-color: fuchsia;
+  background-color: rgb(179, 174, 174);
 }
 
 .monthDropdown:hover .month-dropdown-content {
@@ -777,7 +777,7 @@ li:hover {
 }
 
 .year-dropdown-content a:hover {
-  background-color: fuchsia;
+  background-color: rgb(179, 174, 174);
 }
 
 .yearDropdown:hover .year-dropdown-content {
@@ -830,7 +830,7 @@ li:hover {
 }
 
 .game-dropdown-content a:hover {
-  background-color: fuchsia;
+  background-color: rgb(179, 174, 174);
 }
 
 .gameDropdown:hover .game-dropdown-content {
@@ -1009,7 +1009,7 @@ li:hover {
 }
 
 .hours-dropdown-content a:hover {
-  background-color: fuchsia;
+  background-color: rgb(179, 174, 174);
 }
 
 .hoursDropdown:hover .hours-dropdown-content {
@@ -1166,7 +1166,7 @@ li:hover {
 }
 
 .day-dropdown-content a:hover {
-  background-color: fuchsia;
+  background-color: rgb(179, 174, 174);
 }
 
 .day-dropdown:hover .day-dropdown-content {
@@ -1220,7 +1220,7 @@ li:hover {
 }
 
 .minutes-dropdown-content a:hover {
-  background-color: fuchsia;
+  background-color: rgb(179, 174, 174);
 }
 
 .minutesDropDown:hover .minutes-dropdown-content {

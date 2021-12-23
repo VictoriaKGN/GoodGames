@@ -448,15 +448,21 @@ function doStuff(input) {
             myChart = createHoursChart(gameNewGoalData, 'line', "Date", "Percent Completed", "Percent Complete");
             //myChart.options.scales.y.max = 100;
             myChart2 = createChart2(gameNewGoalPie);
-            activateArchiveButton()
-            activateAddDataButton(false);
+            if( !contains(input.id, archivedLines)) {
+                activateArchiveButton()
+                activateAddDataButton(false);
+            }
+            
             document.getElementById(input.id).style.borderColor = "black";
         }
         else if( name[1] == "hours") {
             myChart = createHoursChart(hoursNewGoalData, 'bar', "Date", "# of hours", "Hours");
             myChart2 = createChart2(hoursNewGoalPie);
-            activateArchiveButton();
-            activateAddDataButton(false);
+            if( !contains(input.id, archivedLines )) {
+                activateArchiveButton();
+                activateAddDataButton(false);
+            }
+            
             document.getElementById(input.id).style.borderColor = "black";
         }
     }
@@ -465,7 +471,16 @@ function doStuff(input) {
 }
 
 
+var archivedLines = [];
 
+function contains( string, list) {
+    for( i=0; i<list.length; i++) {
+        if( string == list[i] ){
+            return true;
+        }
+    }
+    return false;
+}
 
 
 
@@ -552,6 +567,7 @@ function archiveCurrentGoal() {
             console.log("Looking at the arr[i] of " + uniqueArr[i].id);
             //then we delete the node and add it to the archived goals ul
             document.getElementById("archived-list-ul").appendChild(document.getElementById(uniqueArr[i].id));
+            archivedLines[archivedLines.length] = uniqueArr[i].id;
             if(uniqueArr[i].id == "finish-zelda") {
                 zeldaArchived = true;
                 console.log("Archived zelda goal!!!");
