@@ -69,7 +69,10 @@ img
       "l t t t s z";
 }
 
-
+img
+{
+  box-shadow: 5px 10px 10px #161616;
+}
 
 .container {
   display: grid;
